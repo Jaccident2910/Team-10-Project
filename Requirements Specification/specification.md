@@ -227,7 +227,7 @@ _________________________________________
 
 **Requirement Number**: 3
 
-**Requirement Type**: User Interface - Functional
+**Requirement Type**: User Interface - Functional - Gamified Element
 
 **Use Cases**: The user wants to see how far they are through the puzzles
 
@@ -263,6 +263,26 @@ _______________________________________________
 
 **Dependencies**: Trophy System, Puzzle System, Puzzles Screen
 _________________________________________________
+**Requirement Name**: Metrics Interface
+
+**Requirement Number**: 5
+
+**Requirement Type**: User Interface - Functional
+
+**Use Cases**: The employer wants to view a user's metrics, or the overall rankings of users
+
+**Description**: An area solely for the employer where they can view user metrics and the overall rankings of viewers. It should be easy to view the top 10% of users in particular. These metrics will include the time taken for each question and the ability to view a user's code for each puzzle they have solved.
+
+**Rationale**: We want the client to be able to view the data on the users, otherwise this whole system does not fulfill its purpose of enabling the client to find technical talent.
+
+**Fit Criterion**: A test user can view the metrics of other candidates. This data should be verified to be correct by another test user logged into the candidate accounts.
+
+**Priority**: Must have
+
+**Conflicts**:None
+
+**Dependencies**: Accounts system, Puzzles system
+_________________________________
 
 
 
@@ -271,7 +291,7 @@ _________________________________________________
 _______________________________
 **Requirement Name**: Website Implementation
 
-**Requirement Number**: 5
+**Requirement Number**: 6
 
 **Requirement Type**: Hardware Interface - Functional
 
@@ -292,34 +312,139 @@ _______________________________
 
 
 #### 3.1.3 Software interfaces
-Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.
+____________________
+**Requirement Name**: Database Interface
+
+**Requirement Number**: 7
+
+**Requirement Type**: Software interface - Functional
+
+**Use Cases**: Within the account system
+
+**Description**: The system must interface with a database to store user data
+
+**Rationale**: In order to have an ordered way of storing this information, it would be best to have a database with all this information on it. In order to do this, we must have some way of interfacing with the database management system.
+
+**Fit Criterion**: Database features work
+
+**Priority**: Should have
+
+**Conflicts**: None
+
+**Dependencies**: None
+___________________
 
 ### 3.2 Functional
-> This section specifies the requirements of functional effects that the software-to-be is to have on its environment.
+___________________________
+**Requirement Name**: Puzzle System
+
+**Requirement Number**: 8
+
+**Requirement Type**: Functional
+
+**Use Cases**: Answering or viewing puzzles
+
+**Description**: A system that allows users to view puzzles and submit answers for them. If the answer to the puzzle is wrong, the system should not allow the user to proceed. If the answer is correct, the user should be provided the next puzzle.
+
+**Rationale**: We want the users to be able to view and answer the puzzles, so we need to build that functionality.
+
+**Fit Criterion**: A test user can view and answer the puzzles.
+
+**Priority**: Must have
+
+**Conflicts**: None
+
+**Dependencies**: Website implementation. Partial dependency on Accounts System.
+____________________________
+**Requirement Name**: Accounts System
+
+**Requirement Number**: 9
+
+**Requirement Type**: Functional
+
+**Use Cases**: The user wants to track their progress between visits to the site. The employer wants to view a user's data.
+
+**Description**: A system that interacts with a database to store user data. This should include username, password and email, alongside progress through the puzzles and any unlocked trophies.
+
+**Rationale**: We want to keep track of the user data to allow the client to assess their ability. This necessitates a system that stores and manages all this data.
+
+**Fit Criterion**: Test users can retain their progress between sessions if they have completed any puzzles, and other test users can view this progress.
+
+**Priority**: Should have
+
+**Conflicts**: None
+
+**Dependencies**: Database interface, Puzzle system
+___________________________
+
+**Requirement Name**: Trophy System
+
+**Requirement Number**: 10
+
+**Requirement Type**: Functional - Gamified Element
+
+**Use Cases**: A user achieves something noteworthy and should be rewarded
+
+**Description**: A system that awards "trophies" to users to reward them for doing something noteworthy. It should keep track of which trophies each user has, and detect when it should award them new trophies.
+
+**Rationale**: This is the main gamified element of the overall system, and we want these gamified elements to motivate players to keep trying at the puzzles. Giving them bonus rewards further incentivises them to keep trying their hardest, and also provides more metrics for the employer to differentiate candidates by.
+
+**Fit Criterion**: A test user should unlock trophies for completing certain tasks.
+
+**Priority**: Could have
+
+**Conflicts**: None
+
+**Dependencies**: Accounts System
+____________________________________
 
 ### 3.3 Quality of Service
 > This section states additional, quality-related property requirements that the functional effects of the software should present.
 
-#### 3.3.1 Performance
-If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.
+#### 3.3.1 Security
+_____________________________
+**Requirement Name**: Password Encryption
 
-#### 3.3.2 Security
-Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.
+**Requirement Number**: 11
 
-#### 3.3.3 Reliability
-Specify the factors required to establish the required reliability of the software system at time of delivery.
+**Requirement Type**: Non-functional
 
-#### 3.3.4 Availability
-Specify the factors required to guarantee a defined availability level for the entire system such as checkpoint, recovery, and restart.
+**Use Cases**: Whenever a user has a password
 
-### 3.4 Compliance
-Specify the requirements derived from existing standards or regulations, including:  
-* Report format
-* Data naming
-* Accounting procedures
-* Audit tracing
+**Description**: A system that ensures passwords are not stored in plaintext and are transmitted thoroughly
 
-For example, this could specify the requirement for software to trace processing activity. Such traces are needed for some applications to meet minimum regulatory or financial standards. An audit trace requirement may, for example, state that all changes to a payroll database shall be recorded in a trace file with before and after values.
+**Rationale**: We want our users' passwords to be safe and secure. 
+
+**Fit Criterion**: Passwords should not be stored or transmitted in plaintext
+
+**Priority**: Should have
+
+**Conflicts**: None
+
+**Dependencies**: Account System
+
+### 3.2 Compliance
+__________________________
+**Requirement Name**: GDPR Compliance
+
+**Requirement Number**: 12
+
+**Requirement Type**: Non-Functional - Legal
+
+**Use Cases**: Whenever user data is stored
+
+**Description**: Our accounts and database systems should be GDPR-compliant.
+
+**Rationale**: This is a legal requirement.
+
+**Fit Criterion**: All requirements given by GDPR are met.
+
+**Priority**: Must have
+
+**Conflicts**: None
+
+**Dependencies**: Accounts System, Password Encryption
+_________________________
 
 ### 3.5 Design and Implementation
 
