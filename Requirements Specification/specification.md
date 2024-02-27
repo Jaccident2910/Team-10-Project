@@ -29,20 +29,11 @@ Table of Contents
     * 3.1.3 [Software Interfaces](#313-software-interfaces)
   * 3.2 [Functional](#32-functional)
   * 3.3 [Quality of Service](#33-quality-of-service)
-    * 3.3.1 [Performance](#331-performance)
-    * 3.3.2 [Security](#332-security)
-    * 3.3.3 [Reliability](#333-reliability)
-    * 3.3.4 [Availability](#334-availability)
+    * 3.3.1 [Security](#331-security)
   * 3.4 [Compliance](#34-compliance)
   * 3.5 [Design and Implementation](#35-design-and-implementation)
-    * 3.5.1 [Installation](#351-installation)
-    * 3.5.2 [Distribution](#352-distribution)
-    * 3.5.3 [Maintainability](#353-maintainability)
-    * 3.5.4 [Reusability](#354-reusability)
-    * 3.5.5 [Portability](#355-portability)
-    * 3.5.6 [Cost](#356-cost)
-    * 3.5.7 [Deadline](#357-deadline)
-    * 3.5.8 [Proof of Concept](#358-proof-of-concept)
+    * 3.5.2 [Cost](#352-cost)
+    * 3.5.3 [Deadline](#353-deadline)
 * 4 [Verification](#4-verification)
 * 5 [Appendixes](#5-appendixes)
 
@@ -76,7 +67,6 @@ The purpose of the product is to enable Microsoft to find talented potential hir
 Describe what the rest of the document contains and how it is organized.
 
 ## 2. Product Overview
-> This section should describe the general factors that affect the product and its requirements. This section does not state specific requirements. Instead, it provides a background for those requirements, which are defined in detail in Section 3, and makes them easier to understand.
 
 ### 2.1 Product Perspective
 This product is being produced as part of the 2024 Group Design Practicals done by students in their second year of a Computer Science course at the University of Oxford. It emulates the interview process of most software companies, wherein candidates are asked a number of technical questions and puzzles in order for the interviewer to assess the ability of the candidate. The product shall be completely standalone, and not be part of any wider project.
@@ -414,7 +404,6 @@ ____________________________________
 ____________________________________
 
 ### 3.3 Quality of Service
-> This section states additional, quality-related property requirements that the functional effects of the software should present.
 
 #### 3.3.1 Security
 _____________________________
@@ -438,7 +427,7 @@ _____________________________
 
 **Dependencies**: Account System
 
-### 3.2 Compliance
+### 3.4 Compliance
 __________________________
 **Requirement Name**: GDPR Compliance
 
@@ -525,7 +514,7 @@ ________________________________
 **Dependencies**: None
 ______________________________
 
-#### 3.5.6 Cost
+#### 3.5.2 Cost
 _______________________
 **Requirement Name**: Low Cost
 
@@ -548,7 +537,7 @@ _______________________
 **Dependencies**: None
 _________________________
 
-#### 3.5.7 Deadline
+#### 3.5.3 Deadline
 _______________________
 **Requirement Name**: Deadline
 
