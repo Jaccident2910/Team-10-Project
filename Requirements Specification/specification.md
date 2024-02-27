@@ -142,7 +142,7 @@ Identify requirements that may be delayed until future versions of the system (e
 * Be verifiable (e.g., the requirement realization can be proven to the customer's satisfaction)
 * Conform to agreed upon syntax, keywords, and terms.
 
-**Requirement Template**
+### Requirement Template
 
 **Requirement Name**:
 
@@ -446,36 +446,98 @@ __________________________
 **Dependencies**: Accounts System, Password Encryption
 _________________________
 
-### 3.5 Design and Implementation
+### 3.5 Design, Implementation and Non-functional Requirements
+______________________
+**Requirement Name**: Cross-browser compatibility
 
-#### 3.5.1 Installation
-Constraints to ensure that the software-to-be will run smoothly on the target implementation platform.
+**Requirement Number**: 13
 
-#### 3.5.2 Distribution
-Constraints on software components to fit the geographically distributed structure of the host organization, the distribution of data to be processed, or the distribution of devices to be controlled.
+**Requirement Type**: Non-functional - Installation - Portability
 
-#### 3.5.3 Maintainability
-Specify attributes of software that relate to the ease of maintenance of the software itself. These may include requirements for certain modularity, interfaces, or complexity limitation. Requirements should not be placed here just because they are thought to be good design practices.
+**Use Cases**: Accessing the system from any major web browser
 
-#### 3.5.4 Reusability
-<!-- TODO: come up with a description -->
+**Description**: Users should be able to access the system from any major web browser. This means the system should only use features compatible with the HTML5 standard (i.e not any features that are only supported by Chromium-based browsers).
 
-#### 3.5.5 Portability
-Specify attributes of software that relate to the ease of porting the software to other host machines and/or operating systems.
+**Rationale**: We want all possible users to be able to use the system, but also want full functionality for the system. This means while we can't support some of the more fringe browsers like GNU IceCat, we would still like to support Firefox, Safari, and all of the Chromium-based browsers. This means we should stick to the standards common to all 3, i.e. the HTML5 standard
+
+**Fit Criterion**: We test the system on Firefox, Safari and Chrome.
+
+**Priority**: Could do
+
+**Conflicts**:
+
+**Dependencies**: None
+________________________________
+
+**Requirement Name**: Good Documentation
+
+**Requirement Number**: 14
+
+**Requirement Type**: Non-functional - Maintainability
+
+**Use Cases**: Other developers want to understand the code
+
+**Description**: We should document our code well so that any other developer has a good idea of what this code code. This should mean that any other team member could understand the code, and any future developers wouldm be able to as well.
+
+**Rationale**: It makes the software more maintainable for future developers, and ensures developers can work on each other's code within the team.
+
+**Fit Criterion**: The code has thorough documentation and is comprehensible to other developers on the team.
+
+**Priority**: Could do
+
+**Conflicts**: Time
+
+**Dependencies**: None
+______________________________
 
 #### 3.5.6 Cost
-Specify monetary cost of the software product.
+_______________________
+**Requirement Name**: Low Cost
+
+**Requirement Number**: 15
+
+**Requirement Type**: Non-functional
+
+**Use Cases**: None
+
+**Description**: The system should not cost a lot of money to run.
+
+**Rationale**: As a team we do not have any money to put forward for development.
+
+**Fit Criterion**: The team does not have to pay money towards the project
+
+**Priority**: Must have
+
+**Conflicts**: Database Interface, Account System
+
+**Dependencies**: None
+_________________________
 
 #### 3.5.7 Deadline
-Specify schedule for delivery of the software product.
+_______________________
+**Requirement Name**: Deadline
 
-#### 3.5.8 Proof of Concept
-<!-- TODO: come up with a description -->
+**Requirement Number**: 16
+
+**Requirement Type**: Non-functional
+
+**Use Cases**: None
+
+**Description**: The project must be completed by the week commencing 29th April
+
+**Rationale**: This is the deadline set out in the group project briefing
+
+**Fit Criterion**: Our final meeting and product delivery happens that week
+
+**Priority**: Must have
+
+**Conflicts**: Number of features
+
+**Dependencies**: None
+_______________________
 
 ## 4. Verification
-> This section provides the verification approaches and methods planned to qualify the software. The information items for verification are recommended to be given in a parallel manner with the requirement items in Section 3. The purpose of the verification process is to provide objective evidence that a system or system element fulfills its specified requirements and characteristics.
 
-<!-- TODO: give more guidance, similar to section 3 -->
-<!-- ieee 15288:2015 -->
+We will verify the requirements by verifying their fit criteria are met. We are open to other methods of verification alongside these.
 
-## 5. Appendixes
+<!-- ## 5. Appendixes !-->
