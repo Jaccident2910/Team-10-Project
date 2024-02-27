@@ -131,17 +131,7 @@ Apportion the software requirements to software elements. For requirements that 
 
 Identify requirements that may be delayed until future versions of the system (e.g., blocks and/or increments).
 
-## 3. Requirements
-> This section specifies the software product's requirements. Specify all of the software requirements to a level of detail sufficient to enable designers to design a software system to satisfy those requirements, and to enable testers to test that the software system satisfies those requirements.
-
-> The specific requirements should:
-* Be uniquely identifiable.
-* State the subject of the requirement (e.g., system, software, etc.) and what shall be done.
-* Optionally state the conditions and constraints, if any.
-* Describe every input (stimulus) into the software system, every output (response) from the software system, and all functions performed by the software system in response to an input or in support of an output.
-* Be verifiable (e.g., the requirement realization can be proven to the customer's satisfaction)
-* Conform to agreed upon syntax, keywords, and terms.
-
+## 3. Requirements  
 ### Requirement Template
 
 **Requirement Name**:
@@ -165,23 +155,8 @@ Identify requirements that may be delayed until future versions of the system (e
 **Dependencies**:
 
 ### 3.1 External Interfaces
-> This subsection defines all the inputs into and outputs requirements of the software system. Each interface defined may include the following content:
-* Name of item
-* Source of input or destination of output
-* Valid range, accuracy, and/or tolerance
-* Units of measure
-* Timing
-* Relationships to other inputs/outputs
-* Screen formats/organization
-* Window formats/organization
-* Data formats
-* Command formats
-* End messages
 
 #### 3.1.1 User interfaces
-Define the software components for which a user interface is needed. Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Details of the user interface design should be documented in a separate user interface specification.
-
-Could be further divided into Usability and Convenience requirements.
 ________________________________________
 **Requirement Name**: Login Screen
 
@@ -333,6 +308,26 @@ ____________________
 
 **Dependencies**: None
 ___________________
+**Requirement Name**: Intuitive UI
+
+**Requirement Number**: 8
+
+**Requirement Type**: Non-functional - User Interface
+
+**Use Cases**: Whenever either type of user uses the software
+
+**Description**: The user interface should be easy to use and easy to understand.
+
+**Rationale**: We want anyone with talent to be able to complete the puzzles, and any employee to be able to review users.
+
+**Fit Criterion**: The UI should not be cluttered, and should have its look verified by the client as acceptable.
+
+**Priority**: Could have
+
+**Conflicts**: Deadline
+
+**Dependencies**: All UI requirements
+_____________________
 
 ### 3.2 Functional
 ___________________________
@@ -397,6 +392,26 @@ ___________________________
 
 **Dependencies**: Accounts System
 ____________________________________
+**Requirement Name**: Number of puzzles
+
+**Requirement Number**: 
+
+**Requirement Type**: Functional
+
+**Use Cases**: When a user proceeds through the puzzle or an employer views the puzzle answers.
+
+**Description**: There should be 10-15 puzzles
+
+**Rationale**: This is a large enough number of puzzles to be sufficient to measure the capability of candidates, but not so large as to make development infeasible.
+
+**Fit Criterion**: There are 10-15 puzzles.
+
+**Priority**: Must have
+
+**Conflicts**: Deadline
+
+**Dependencies**: Puzzle System, Puzzles Screen
+____________________________________
 
 ### 3.3 Quality of Service
 > This section states additional, quality-related property requirements that the functional effects of the software should present.
@@ -447,6 +462,26 @@ __________________________
 _________________________
 
 ### 3.5 Design, Implementation and Non-functional Requirements
+______________________
+**Requirement Name**: Increasing Difficulty
+
+**Requirement Number**: 
+
+**Requirement Type**: Non-functional
+
+**Use Cases**: When a candidate proceeds through multiple puzzles
+
+**Description**: The puzzles should increase in difficulty as the user progresses through them. Furthermore, there should be 3 "tiers" of difficulty: the first 5 puzzles should be completable by most computer science students, the next 5 should be graduate-level difficulty, and the final 5 should be challenging interview-level questions.
+
+**Rationale**: We want to properly assess the capability of candidates while not scaring away people who may not initially be able to solve the more difficult puzzles.
+
+**Fit Criterion**: We categorise the puzzles according to creativity needed, subject matter and complexity of problem, and then group our puzzles into the 3 tiers using these measures.
+
+**Priority**: Should have
+
+**Conflicts**: None
+
+**Dependencies**: Puzzle System
 ______________________
 **Requirement Name**: Cross-browser compatibility
 
