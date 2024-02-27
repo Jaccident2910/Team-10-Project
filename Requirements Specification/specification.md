@@ -143,9 +143,13 @@ Identify requirements that may be delayed until future versions of the system (e
 * Conform to agreed upon syntax, keywords, and terms.
 
 **Requirement Template**
+
 **Requirement Name**:
+
 **Requirement Number**: 
+
 **Requirement Type**: 
+
 **Use Cases**:
 
 **Description**:
@@ -178,11 +182,114 @@ Identify requirements that may be delayed until future versions of the system (e
 Define the software components for which a user interface is needed. Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Details of the user interface design should be documented in a separate user interface specification.
 
 Could be further divided into Usability and Convenience requirements.
+________________________________________
+**Requirement Name**: Login Screen
+
+**Requirement Number**: 1
+
+**Requirement Type**: User Interface - Functional
+
+**Use Cases**: Used when candidate wants to log in and start/continue solving the puzzles.
+
+**Description**: A login screen, where a user can enter their details and "log in", allowing them to continue the puzzle they are currently working on with their progress saved.
+
+**Rationale**: If we are implementing an accounts system then there should be a way to log in to your acount.
+
+**Fit Criterion**: A test user can enter their details and log in, and then be taken to the main part of the system.
+
+**Priority**: Should have
+
+**Conflicts**: None
+
+**Dependencies**: Accounts System
+________________________________________
+**Requirement Name**: Puzzles Screen
+
+**Requirement Number**: 2
+
+**Requirement Type**: User Interface - Functional
+
+**Use Cases**: User is solving puzzles/ submitting solutions
+
+**Description**: There will be a portion of the screen displaying the current puzzle, alongside another part of the screen where the answer to the puzzle should be entered. There will also be an area where the user can submit their code for that puzzle.
+
+**Rationale**: The user needs tio be able to view the puzzle, and be able to submit their answer and their code
+
+**Fit Criterion**: A test user can view a puzzle and submit a solution alongside their code.
+
+**Priority**: Must have
+
+**Conflicts**: None
+
+**Dependencies**: Partial dependency on account system
+_________________________________________
+**Requirement Name**: Progress Bar
+
+**Requirement Number**: 3
+
+**Requirement Type**: User Interface - Functional
+
+**Use Cases**: The user wants to see how far they are through the puzzles
+
+**Description**: A progress bar that shows the user how many puzzles they have solved and how many more they have to solve
+
+**Rationale**: A progress bar would fall under one of our gamified elements - seeing it will motivate our users and make them feel like they're making progress. Seeing the bar go up will be a kind of reward.
+
+**Fit Criterion**: There is a progress bar that increases when a test user goes through the puzzles
+
+**Priority**: Could have
+
+**Conflicts**: None
+
+**Dependencies**: Account System, Puzzle System, Puzzles Screen
+_______________________________________________
+**Requirement Name**: Trophy Area
+
+**Requirement Number**: 4
+
+**Requirement Type**: User Interface - Functional
+
+**Use Cases**: A user wants to see which trophies they have earned.
+
+**Description**: A sidebar that the user can enter to see which trophies they have earned.
+
+**Rationale**: When awarding the user trophies and other similar gamified elements, a huge part of why that is engaging is the user's ability to view their trophies. If this is not implemented, the users will not have a way of reflecting on their achievements.
+
+**Fit Criterion**: A test user can click on the sidebar and view their trophies.
+
+**Priority**: Could have
+
+**Conflicts**: None
+
+**Dependencies**: Trophy System, Puzzle System, Puzzles Screen
+_________________________________________________
+
 
 
 
 #### 3.1.2 Hardware interfaces
-Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.
+_______________________________
+**Requirement Name**: Website Implementation
+
+**Requirement Number**: 5
+
+**Requirement Type**: Hardware Interface - Functional
+
+**Use Cases**: The user wants to access our website
+
+**Description**: The system should be implemented so a web browser can interact with it
+
+**Rationale**: We want this system to be as easy to access as possible, and so a website is the natural choice.
+
+**Fit Criterion**: A test user can view the website using their web browser.
+
+**Priority**: Must have
+
+**Conflicts**: None
+
+**Dependencies**: None
+_______________________________
+
 
 #### 3.1.3 Software interfaces
 Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.
