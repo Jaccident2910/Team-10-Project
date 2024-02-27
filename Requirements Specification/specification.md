@@ -1,10 +1,10 @@
 # Software Requirements Specification
-## For <project name>
+## For the Technical Talent Finding System
 
 Version 0.1  
-Prepared by <author>  
-<organization>  
-<date created>  
+Prepared by Jack Harris
+Team 10 of the 2024 Oxford CompSci Second Year Group Design Practical  
+created 2024/02/27
 
 Table of Contents
 =================
@@ -54,18 +54,23 @@ Table of Contents
 |      |         |                     |           |
 
 ## 1. Introduction
-> This section should provide an overview of the entire document
+This document will act as the specification from which Team 10 shall produce a talent finding system for Microsoft. This system will enable Microsoft to find talented individuals who would be suited to working in a software development role, and it will do so in ways specified in this document.
 
 ### 1.1 Document Purpose
-Describe the purpose of the SRS and its intended audience.
+The purpose of this document is twofold: to provide a specification from which the developers can produce the intended software, and to provide a specification of the system on which the developers and the client agree.
 
 ### 1.2 Product Scope
-Identify the product whose software requirements are specified in this document, including the revision or release number. Explain what the product that is covered by this SRS will do, particularly if this SRS describes only part of the system or a single subsystem. Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.
+The purpose of the product is to enable Microsoft to find talented potential hires for graduate software development roles. It will do so by providing a series of puzzles which test algorithmic thinking and advanced coding, similar to those found on websites like [LeetCode](https://leetcode.com/), [HackerRank](https://www.hackerrank.com/) and [AlgoExpert](https://www.algoexpert.io/product). It will also provide ranking metrics for the performance of the users of the system, alongside an overall ranking of the users. There will also be gamified elements which provide extrinsic rewards for the users.
 
 ### 1.3 Definitions, Acronyms and Abbreviations
+"The developers", "Team 10", "we": The development team for the project, consisting of Jack Harris, Rory Kemp, Raul Sheth, Luke Tan, Nathan Hardcastle and Georgi Petkov.
+
+"The client", "Microsoft": The client for this project, consisting primarily of Lilia Georgieva, but including Microsoft as a whole.
+
+"The users", "the applicants", "the candidates": The people who will be solving the puzzles in this system and participating in the rankings. In other words, the people the client will want to consider as potential applicants for graduate software roles.
 
 ### 1.4 References
-List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
+[UML Use Case Diagrams]
 
 ### 1.5 Document Overview
 Describe what the rest of the document contains and how it is organized.
@@ -74,27 +79,55 @@ Describe what the rest of the document contains and how it is organized.
 > This section should describe the general factors that affect the product and its requirements. This section does not state specific requirements. Instead, it provides a background for those requirements, which are defined in detail in Section 3, and makes them easier to understand.
 
 ### 2.1 Product Perspective
-Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.
+This product is being produced as part of the 2024 Group Design Practicals done by students in their second year of a Computer Science course at the University of Oxford. It emulates the interview process of most software companies, wherein candidates are asked a number of technical questions and puzzles in order for the interviewer to assess the ability of the candidate. The product shall be completely standalone, and not be part of any wider project.
 
 ### 2.2 Product Functions
-Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.
+The product shall:
+* Provide a series of puzzles to the user for them to complete
+* Provide a place for users to upload their code for their answers
+
+* Provide a series of metrics from which the users' performance can be assessed
+* Provide an overall ranking of the users
+
+* Provide a login/accounts system for the users, so their progress can be kept between sessions
+* Provide gamified elements within the puzzle to provide extra rewards to users and motivate them to keep trying the puzzles.
+
 
 ### 2.3 Product Constraints
-This subsection should provide a general description of any other items that will limit the developer’s options. These may include:  
-
-* Interfaces to users, other applications or hardware.  
-* Quality of service constraints.  
-* Standards compliance.  
-* Constraints around design or implementation.
+The product will have the following constraints:
+* The product will have to run in the web browser.
+* The product will have to have its backend running on a lightweight server.
+* The product will have to be developed within 2 months.
+* The product will have to be GDPR-compliant.
+* The product will be developed by six second-year undergraduates. 
 
 ### 2.4 User Characteristics
 Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.
 
+**User Class 1: Candidates**
+These users will primarily be computer science graduates. They will be proficient in algorithmic thinking, and will have enough capability in a programming language to be able to produce computer programs that allow them to answer the puzzles. 
+
+**User Class 2: Employers**
+These will primarily be recruiters at Microsoft looking for hidden talent. They will be very proficient in algorithmic thinking and will have some degree of experience within the software industry. They will be able to assess the quality of the code of applicants.
+
 ### 2.5 Assumptions and Dependencies
-List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).
+The following assumptions are present:
+* Candidates will have access to the internet and a web browser
+* The metrics specified in this document will be useful in assessing the ability of users.
+
+Since we will be making most of this from scratch, there are very few external assumptions about the operation of other software components.
+
 
 ### 2.6 Apportioning of Requirements
 Apportion the software requirements to software elements. For requirements that will require implementation over multiple software elements, or when allocation to a software element is initially undefined, this should be so stated. A cross reference table by function and software element should be used to summarize the apportioning.
+
+| Requirement | Software Element | 
+| ----------- | ---------------- | 
+|             |                  |           
+|             |                  | 
+|             |                  |           
+
+
 
 Identify requirements that may be delayed until future versions of the system (e.g., blocks and/or increments).
 
@@ -108,6 +141,24 @@ Identify requirements that may be delayed until future versions of the system (e
 * Describe every input (stimulus) into the software system, every output (response) from the software system, and all functions performed by the software system in response to an input or in support of an output.
 * Be verifiable (e.g., the requirement realization can be proven to the customer's satisfaction)
 * Conform to agreed upon syntax, keywords, and terms.
+
+**Requirement Template**
+**Requirement Name**:
+**Requirement Number**: 
+**Requirement Type**: 
+**Use Cases**:
+
+**Description**:
+
+**Rationale**:
+
+**Fit Criterion**:
+
+**Priority**:
+
+**Conflicts**:
+
+**Dependencies**:
 
 ### 3.1 External Interfaces
 > This subsection defines all the inputs into and outputs requirements of the software system. Each interface defined may include the following content:
@@ -127,6 +178,8 @@ Identify requirements that may be delayed until future versions of the system (e
 Define the software components for which a user interface is needed. Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Details of the user interface design should be documented in a separate user interface specification.
 
 Could be further divided into Usability and Convenience requirements.
+
+
 
 #### 3.1.2 Hardware interfaces
 Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.
