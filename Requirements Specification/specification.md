@@ -230,7 +230,16 @@ Identify requirements that may be delayed until future versions of the system (e
 | Post-conditions | The ranking will be displayed by the page. |
 | Alternative Flow | 1)	User navigates to the account of a Candidate <br> 2)	User clicks on the “view ranking” button. <br> 3)	The ranking will be displayed as a list of Candidates, each identified by their name and number of puzzles solved. The list is sorted in decreasing order of the number of puzzles solved. <br> 4)	The entry associated with the account will be highlighted and the page will display the list with the highlighted entry in the center. |
 
-
+| ID | UC6 | 
+| ----------- | ---------------- | 
+|      Name       | View Trophies |           
+| Description | View all the trophies a user has gained over the course of their time using the system. | 
+| Actor | Candidate, Employer|  
+| Pre-conditions| User must be logged in. |
+| Trigger | User clicks on the "Trophies" tab of the puzzle screen/main screen|
+| Basic Flow | 1) User clicks on the Trophies tab. <br> 2) User can see a graphical depiction of the trophies they have, alongside a name for each trophy. <br> 3) User can hover over trophies to learn what that trophy was earned for.  <br> 4) User can view the percentage of trophies they have gained, and the requirements for each one. <br> 5) User can close the Trophies tab. |
+| Post-conditions | User knows what trophies they have unlocked and feels motivated to unlock more. |
+| Alternative Flow | 1) User is an Employer. <br> 2) User has navigated to a Candidate's page. <br> 3) User can view all the trophies a User has earned. |
 
 
 ### 3.1 External Interfaces
