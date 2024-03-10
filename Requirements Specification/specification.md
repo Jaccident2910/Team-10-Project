@@ -216,8 +216,7 @@ Identify requirements that may be delayed until future versions of the system (e
 | Trigger | User clicks a “view submission” button on the page for a puzzle |
 | Basic Flow | 1)	User navigates to the page for a puzzle. <br> 2)	User clicks the “view submission” button <br> 3)	Relevant submissions will be displayed: <br> a)	If the user is a Candidate, their previous submitted code will be displayed <br> b)	If the user is an Employer, they will be provided with a list of Candidates that have solved the puzzle, which is by default sorted by time. User can then click on a Candidate to see their submitted code |
 | Post-conditions | Relevant code will be displayed by the page or provided for download. |
-| Alternative Flow | 1)	User navigates to the account page of a Candidate. <br> 2)	If the user is either an administrator or logged in to the relevant account, the page will display a list of puzzles that the Candidate has solved
-3)	User can click on a problem to see the Candidate’s code submission for the problem |
+| Alternative Flow | 1)	User navigates to the account page of a Candidate. <br> 2)	If the user is either an administrator or logged in to the relevant account, the page will display a list of puzzles that the Candidate has solved 3)	User can click on a problem to see the Candidate’s code submission for the problem |
   
 | ID | UC5 | 
 | ----------- | ---------------- | 
