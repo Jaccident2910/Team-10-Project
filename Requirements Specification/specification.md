@@ -165,14 +165,47 @@ Identify requirements that may be delayed until future versions of the system (e
 | ID | UC1 | 
 | ----------- | ---------------- | 
 |      Name       | Completing Puzzles |           
-| Description | Students should be able to complete puzzles on the website. | 
-| Actor |      Student            |  
-| Pre-conditions| The student is logged in to the website and the puzzle is unlocked and viewable |
+| Description | Candidates should be able to complete puzzles on the website. | 
+| Actor |      Candidate            |  
+| Pre-conditions| The candidate is logged in to the website and the puzzle is unlocked and viewable |
 | Trigger |User enters an answer on the page, either in text form or uploading a file. <br> They can also upload code.|
 | Basic Flow |  1) User navigates to relevant puzzle page. <br> 2) User downloads any required material to solve the puzzle. <br> 3) User solves the puzzle. <br> 4) User submits their answer and code for review <br> 5) If correct, they are awarded points, otherwise they could be given hints to progress |
 | Post-conditions | The user has the relevant points and/or achievements/awards for solving the puzzle |
-| Alternative Flow | User solves an introductory puzzle while not being logged in and upon solving is prompted to create an account to save their progress |
+| Alternative Flow | User solves an introductory puzzle while not being logged in, <br> and upon solving is prompted to create an account to save their progress |
 
+| ID | UC2 | 
+| ----------- | ---------------- | 
+|      Name       | Register New Candidate |           
+| Description | A new candiate should be able to create a new account to track their progress. | 
+| Actor | Candidate |  
+| Pre-conditions| User has navigated to the website's registration screen |
+| Trigger | User has clicked on the "register user" button.|
+| Basic Flow | 1) User navigates to registration screen. <br> 2) User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details. <br> 4) User details are transmitted to acounts system <br> 5) A new account entry is created for this user with the appropriate details. <br> 6) The user is sent to the login screen to enter their details. |
+| Post-conditions | The user now has an account with login details they know, and they can log into this account to track their progress|
+| Alternative Flow |1) User navigates to the registration screen. <br> User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details, but the username or email have already been used for a previous account. 4) User is informed of the problem, and if their email is the one that has already been used, they are prompted to reset their username/password |
+
+| ID | UC3 | 
+| ----------- | ---------------- | 
+|      Name       | Register New Employer |           
+| Description | An employer should be able to create a new account to track the progress of candidates. | 
+| Actor | Employer |  
+| Pre-conditions| User has navigated to the website's registration screen. |
+| Trigger | User has clicked "I'm an employer" button. |
+| Basic Flow | 1) User navigates to registration screen. <br> 2) User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details. <br> 4) User details are transmitted to acounts system <br> 5) A new account entry is created for this user with the appropriate details. <br> 6) The user is sent to the login screen to enter their details. |
+| Post-conditions | The user now has an account with login details they know, and they can log into this account to track their progress|
+| Alternative Flow |1) User navigates to the registration screen. <br> User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details, but the username or email have already been used for a previous account. 4) User is informed of the problem, and if their email is the one that has already been used, they are prompted to reset their username/password |
+
+
+| ID | UC3 | 
+| ----------- | ---------------- | 
+|      Name       | Log In |           
+| Description | Log a user in to their account. | 
+| Actor | Student, Employer|  
+| Pre-conditions| |
+| Trigger ||
+| Basic Flow ||
+| Post-conditions ||
+| Alternative Flow ||
 
 
 ### 3.1 External Interfaces
