@@ -165,10 +165,10 @@ Identify requirements that may be delayed until future versions of the system (e
 | ID | UC1 | 
 | ----------- | ---------------- | 
 |      Name       | Completing Puzzles |           
-| Description | Candidates should be able to complete puzzles on the website. | 
+| Description | Candidates should be able to complete puzzles on the website, and must be able to upload their code that generated the solution | 
 | Actor |      Candidate            |  
 | Pre-conditions| The candidate is logged in to the website and the puzzle is unlocked and viewable |
-| Trigger |User enters an answer on the page, either in text form or uploading a file. <br> They can also upload code.|
+| Trigger |User enters an answer on the page, either in text form or uploading a file. |
 | Basic Flow |  1) User navigates to relevant puzzle page. <br> 2) User downloads any required material to solve the puzzle. <br> 3) User solves the puzzle. <br> 4) User submits their answer and code for review <br> 5) If correct, they are awarded points, otherwise they could be given hints to progress |
 | Post-conditions | The user has the relevant points and/or achievements/awards for solving the puzzle |
 | Alternative Flow | User solves an introductory puzzle while not being logged in, <br> and upon solving is prompted to create an account to save their progress |
@@ -182,7 +182,7 @@ Identify requirements that may be delayed until future versions of the system (e
 | Trigger | User has clicked on the "register user" button.|
 | Basic Flow | 1) User navigates to registration screen. <br> 2) User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details. <br> 4) User details are transmitted to acounts system <br> 5) A new account entry is created for this user with the appropriate details. <br> 6) The user is sent to the login screen to enter their details. |
 | Post-conditions | The user now has an account with login details they know, and they can log into this account to track their progress|
-| Alternative Flow |1) User navigates to the registration screen. <br> User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details, but the username or email have already been used for a previous account. 4) User is informed of the problem, and if their email is the one that has already been used, they are prompted to reset their username/password |
+| Alternative Flow |1) User navigates to the registration screen. <br> User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details, but the username or email have already been used for a previous account. <br> 4) User is informed of the problem, and if their email is the one that has already been used, they are prompted to reset their username/password |
 
 | ID | UC3 | 
 | ----------- | ---------------- | 
@@ -191,21 +191,46 @@ Identify requirements that may be delayed until future versions of the system (e
 | Actor | Employer |  
 | Pre-conditions| User has navigated to the website's registration screen. |
 | Trigger | User has clicked "I'm an employer" button. |
-| Basic Flow | 1) User navigates to registration screen. <br> 2) User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details. <br> 4) User details are transmitted to acounts system <br> 5) A new account entry is created for this user with the appropriate details. <br> 6) The user is sent to the login screen to enter their details. |
-| Post-conditions | The user now has an account with login details they know, and they can log into this account to track their progress|
-| Alternative Flow |1) User navigates to the registration screen. <br> User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details, but the username or email have already been used for a previous account. 4) User is informed of the problem, and if their email is the one that has already been used, they are prompted to reset their username/password |
+| Basic Flow | 1) User navigates to registration screen. <br> 2) User clicks the "I'm an employer button". <br> 3) User is prompted for their new login details, including username, password and email, alongside a method to verify they are an employer. <br>4) User fills in their details. <br> 4) User details are transmitted to acounts system <br> 5) The details are verified to ensure that this account should be an employer account. 6) A new account entry is created for this user with the appropriate details. <br> 7) The user is sent to the login screen to enter their details. |
+| Post-conditions | The user now has an employer account with login details they know, and they can log into this account to track their progress|
+| Alternative Flow |1) User navigates to the registration screen. <br> User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details, but their details fail the employer verification process. <br> 4) User is informed of the problem, and can try to enter the correct details instead. |
 
 
 | ID | UC3 | 
 | ----------- | ---------------- | 
 |      Name       | Log In |           
 | Description | Log a user in to their account. | 
-| Actor | Student, Employer|  
-| Pre-conditions| |
-| Trigger ||
-| Basic Flow ||
-| Post-conditions ||
-| Alternative Flow ||
+| Actor | Candidate, Employer|  
+| Pre-conditions| User must have previously registered an account, administrators must not be able to access credentials of any student.  |
+| Trigger | User opens application and has not clicked 'Remember Me' on prior use. |
+| Basic Flow | 1) User enters credentials into relevant fields, as well as a checkbox that allows them to skip log-in process in the future. <br> 2) If credentials are verified by the database, provide access to home page. <br> •	For students,  home page will display relevant details such as their score, position on leaderboard, previously submitted code and future problems. <br>•	For administrators, home page will display options to edit and add problems as well as view student solutions. <br> 3)	If credientials are incorrect, allow the user to enter incorrect details a total of 5 times before locking account for 5 minutes. |
+| Post-conditions | Students and adminstrators will have access to their relevant accounts. |
+| Alternative Flows | •	Allow the user to reset their password through a button prompt and a relevant email entered. <br> •	If the application is opened and user has previously selected 'Remember Me', skip log in process and open account straightaway.  |
+
+| ID | UC4 | 
+| ----------- | ---------------- | 
+|      Name       | View Code for Puzzle Answers |           
+| Description | Be able to access/download the code provided alongside a puzzle answer. | 
+| Actor | Employer, Candidate |  
+| Pre-conditions| User must have an account or be an administrator, and the specified puzzle must have been completed by the specified user. |
+| Trigger | User clicks a “view submission” button on the page for a puzzle |
+| Basic Flow | 1)	User navigates to the page for a puzzle. <br> 2)	User clicks the “view submission” button <br> 3)	Relevant submissions will be displayed: <br> a)	If the user is a Candidate, their previous submitted code will be displayed <br> b)	If the user is an Employer, they will be provided with a list of Candidates that have solved the puzzle, which is by default sorted by time. User can then click on a Candidate to see their submitted code |
+| Post-conditions | Relevant code will be displayed by the page or provided for download. |
+| Alternative Flow | 1)	User navigates to the account page of a Candidate. <br> 2)	If the user is either an administrator or logged in to the relevant account, the page will display a list of puzzles that the Candidate has solved
+3)	User can click on a problem to see the Candidate’s code submission for the problem |
+  
+| ID | UC5 | 
+| ----------- | ---------------- | 
+|      Name       | View Rankings of Candidates |           
+| Description | View the rankings of all the candidates in the system. Also provides the ability to view just the top 10% of candidates. | 
+| Actor | Employer |  
+| Pre-conditions| User must have an Employer account. |
+| Trigger | User clicks a “view ranking” button on the home page. |
+| Basic Flow | 1)	User navigates to the home page. <br> 2)	User clicks the “view ranking” button <br> 3)	The ranking will be displayed as a list of Candidates, each identified by their name and number of puzzles solved. <br> The list is sorted in decreasing order of the number of puzzles solved. <br> 4)	User can click the “top 10%” button to filter the list, only displaying the top 10% Students with most puzzles solved. <br> 5)	User can click on a Candidate’s name to view their profile |
+| Post-conditions | The ranking will be displayed by the page. |
+| Alternative Flow | 1)	User navigates to the account of a Candidate <br> 2)	User clicks on the “view ranking” button. <br> 3)	The ranking will be displayed as a list of Candidates, each identified by their name and number of puzzles solved. The list is sorted in decreasing order of the number of puzzles solved. <br> 4)	The entry associated with the account will be highlighted and the page will display the list with the highlighted entry in the center. |
+
+
 
 
 ### 3.1 External Interfaces
