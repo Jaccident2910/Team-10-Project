@@ -144,6 +144,37 @@ Identify requirements that may be delayed until future versions of the system (e
 
 **Dependencies**:
 
+### 3.0 Use Cases
+### Use Case Diagram
+
+![Use Case Diagram](https://github.com/Jaccident2910/Team-10-Project/blob/main/Requirements%20Specification/UML%20Case%20Diagram.png?raw=true)
+
+### Use Case Descriptions
+
+| ID | UC0 | 
+| ----------- | ---------------- | 
+|      Name       |  |           
+| Description | | 
+| Actor | |  
+| Pre-conditions| |
+| Trigger ||
+| Basic Flow ||
+| Post-conditions ||
+| Alternative Flow ||
+
+| ID | UC1 | 
+| ----------- | ---------------- | 
+|      Name       | Completing Puzzles |           
+| Description | Students should be able to complete puzzles on the website. | 
+| Actor |      Student            |  
+| Pre-conditions| The student is logged in to the website and the puzzle is unlocked and viewable |
+| Trigger |User enters an answer on the page, either in text form or uploading a file. <br> They can also upload code.|
+| Basic Flow |  1) User navigates to relevant puzzle page. <br> 2) User downloads any required material to solve the puzzle. <br> 3) User solves the puzzle. <br> 4) User submits their answer and code for review <br> 5) If correct, they are awarded points, otherwise they could be given hints to progress |
+| Post-conditions | The user has the relevant points and/or achievements/awards for solving the puzzle |
+| Alternative Flow | User solves an introductory puzzle while not being logged in and upon solving is prompted to create an account to save their progress |
+
+
+
 ### 3.1 External Interfaces
 
 #### 3.1.1 User interfaces
