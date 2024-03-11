@@ -109,59 +109,13 @@ The following assumptions are present:
 Since we will be making most of this from scratch, there are very few external assumptions about the operation of other software components.
 
 
-### 2.6 Apportioning of Requirements
-Apportion the software requirements to software elements. For requirements that will require implementation over multiple software elements, or when allocation to a software element is initially undefined, this should be so stated. A cross reference table by function and software element should be used to summarize the apportioning.
-
-| Requirement | Software Element | 
-| ----------- | ---------------- | 
-|             |                  |           
-|             |                  | 
-|             |                  |           
-
-
-
-Identify requirements that may be delayed until future versions of the system (e.g., blocks and/or increments).
-
 ## 3. Requirements  
-### Requirement Template
-
-**Requirement Name**:
-
-**Requirement Number**: 
-
-**Requirement Type**: 
-
-**Use Cases**:
-
-**Description**:
-
-**Rationale**:
-
-**Fit Criterion**:
-
-**Priority**:
-
-**Conflicts**:
-
-**Dependencies**:
-
 ### 3.0 Use Cases
 ### Use Case Diagram
 
 ![Use Case Diagram](https://github.com/Jaccident2910/Team-10-Project/blob/main/Requirements%20Specification/UML%20Case%20Diagram.png?raw=true)
 
 ### Use Case Descriptions
-
-| ID | UC0 | 
-| ----------- | ---------------- | 
-|      Name       |  |           
-| Description | | 
-| Actor | |  
-| Pre-conditions| |
-| Trigger ||
-| Basic Flow ||
-| Post-conditions ||
-| Alternative Flow ||
 
 | ID | UC1 | 
 | ----------- | ---------------- | 
