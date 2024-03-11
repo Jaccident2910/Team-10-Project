@@ -23,6 +23,7 @@ Table of Contents
   * 2.5 [Assumptions and Dependencies](#25-assumptions-and-dependencies)
   * 2.6 [Apportioning of Requirements](#26-apportioning-of-requirements)
 * 3 [Requirements](#3-requirements)
+  * 3.0 [Use Cases](#30-use-cases)
   * 3.1 [External Interfaces](#31-external-interfaces)
     * 3.1.1 [User Interfaces](#311-user-interfaces)
     * 3.1.2 [Hardware Interfaces](#312-hardware-interfaces)
@@ -344,6 +345,26 @@ _________________________________________________
 **Conflicts**:None
 
 **Dependencies**: Accounts system, Puzzles system
+___________________
+**Requirement Name**: Intuitive UI
+
+**Requirement Number**: 6
+
+**Requirement Type**: Non-functional - User Interface
+
+**Use Cases**: Whenever either type of user uses the software
+
+**Description**: The user interface should be easy to use and easy to understand.
+
+**Rationale**: We want anyone with talent to be able to complete the puzzles, and any employee to be able to review users.
+
+**Fit Criterion**: The UI should not be cluttered, and should have its look verified by the client as acceptable.
+
+**Priority**: Could have
+
+**Conflicts**: Deadline
+
+**Dependencies**: All UI requirements
 _________________________________
 
 
@@ -353,7 +374,7 @@ _________________________________
 _______________________________
 **Requirement Name**: Website Implementation
 
-**Requirement Number**: 6
+**Requirement Number**: 7
 
 **Requirement Type**: Hardware Interface - Functional
 
@@ -377,7 +398,7 @@ _______________________________
 ____________________
 **Requirement Name**: Database Interface
 
-**Requirement Number**: 7
+**Requirement Number**: 8
 
 **Requirement Type**: Software interface - Functional
 
@@ -391,36 +412,17 @@ ____________________
 
 **Priority**: Should have
 
-**Conflicts**: None
+**Conflicts**: Cost
 
 **Dependencies**: None
-___________________
-**Requirement Name**: Intuitive UI
 
-**Requirement Number**: 8
-
-**Requirement Type**: Non-functional - User Interface
-
-**Use Cases**: Whenever either type of user uses the software
-
-**Description**: The user interface should be easy to use and easy to understand.
-
-**Rationale**: We want anyone with talent to be able to complete the puzzles, and any employee to be able to review users.
-
-**Fit Criterion**: The UI should not be cluttered, and should have its look verified by the client as acceptable.
-
-**Priority**: Could have
-
-**Conflicts**: Deadline
-
-**Dependencies**: All UI requirements
 _____________________
 
 ### 3.2 Functional
 ___________________________
 **Requirement Name**: Puzzle System
 
-**Requirement Number**: 8
+**Requirement Number**: 9
 
 **Requirement Type**: Functional
 
@@ -440,7 +442,7 @@ ___________________________
 ____________________________
 **Requirement Name**: Accounts System
 
-**Requirement Number**: 9
+**Requirement Number**: 10
 
 **Requirement Type**: Functional
 
@@ -454,14 +456,14 @@ ____________________________
 
 **Priority**: Should have
 
-**Conflicts**: None
+**Conflicts**: Cost
 
 **Dependencies**: Database interface, Puzzle system
 ___________________________
 
 **Requirement Name**: Trophy System
 
-**Requirement Number**: 10
+**Requirement Number**: 11
 
 **Requirement Type**: Functional - Gamified Element
 
@@ -475,13 +477,13 @@ ___________________________
 
 **Priority**: Could have
 
-**Conflicts**: None
+**Conflicts**: Deadline
 
 **Dependencies**: Accounts System
 ____________________________________
 **Requirement Name**: Number of puzzles
 
-**Requirement Number**: 
+**Requirement Number**: 12
 
 **Requirement Type**: Functional
 
@@ -506,7 +508,7 @@ ____________________________________
 _____________________________
 **Requirement Name**: Password Encryption
 
-**Requirement Number**: 11
+**Requirement Number**: 13
 
 **Requirement Type**: Non-functional
 
@@ -520,7 +522,7 @@ _____________________________
 
 **Priority**: Should have
 
-**Conflicts**: None
+**Conflicts**: Deadline
 
 **Dependencies**: Account System
 
@@ -528,7 +530,7 @@ _____________________________
 __________________________
 **Requirement Name**: GDPR Compliance
 
-**Requirement Number**: 12
+**Requirement Number**: 14
 
 **Requirement Type**: Non-Functional - Legal
 
@@ -542,7 +544,7 @@ __________________________
 
 **Priority**: Must have
 
-**Conflicts**: None
+**Conflicts**: Deadline
 
 **Dependencies**: Accounts System, Password Encryption
 _________________________
@@ -551,7 +553,7 @@ _________________________
 ______________________
 **Requirement Name**: Increasing Difficulty
 
-**Requirement Number**: 
+**Requirement Number**: 15
 
 **Requirement Type**: Non-functional
 
@@ -571,7 +573,7 @@ ______________________
 ______________________
 **Requirement Name**: Cross-browser compatibility
 
-**Requirement Number**: 13
+**Requirement Number**: 16
 
 **Requirement Type**: Non-functional - Installation - Portability
 
@@ -592,7 +594,7 @@ ________________________________
 
 **Requirement Name**: Good Documentation
 
-**Requirement Number**: 14
+**Requirement Number**: 17
 
 **Requirement Type**: Non-functional - Maintainability
 
@@ -606,7 +608,7 @@ ________________________________
 
 **Priority**: Could do
 
-**Conflicts**: Time
+**Conflicts**: Deadline
 
 **Dependencies**: None
 ______________________________
@@ -615,7 +617,7 @@ ______________________________
 _______________________
 **Requirement Name**: Low Cost
 
-**Requirement Number**: 15
+**Requirement Number**: 18
 
 **Requirement Type**: Non-functional
 
@@ -638,7 +640,7 @@ _________________________
 _______________________
 **Requirement Name**: Deadline
 
-**Requirement Number**: 16
+**Requirement Number**: 19
 
 **Requirement Type**: Non-functional
 
