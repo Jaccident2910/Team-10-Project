@@ -90,6 +90,7 @@ These will primarily be recruiters at Microsoft looking for hidden talent. They 
 
 ### 2.5 Assumptions and Dependencies
 The following assumptions are present:
+
 * Candidates will have access to the internet and a web browser
 * The metrics specified in this document will be useful in assessing the ability of users.
 
