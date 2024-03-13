@@ -456,11 +456,9 @@ ____________________________________
 **Dependencies**: Puzzle System, Puzzles Screen
 ____________________________________
 
-### 3.3 Quality of Service
-
-#### 3.3.1 Security
+### 3.3 Non-Functional
 _____________________________
-**Requirement Name**: Password Encryption
+**Requirement Name**: Password Encryption / Security
 
 **Requirement Number**: 13
 
@@ -479,8 +477,6 @@ _____________________________
 **Conflicts**: Deadline
 
 **Dependencies**: Account System
-
-### 3.4 Compliance
 __________________________
 **Requirement Name**: GDPR Compliance
 
@@ -501,9 +497,6 @@ __________________________
 **Conflicts**: Deadline
 
 **Dependencies**: Accounts System, Password Encryption
-_________________________
-
-### 3.5 Design, Implementation and Non-functional Requirements
 ______________________
 **Requirement Name**: Increasing Difficulty
 
@@ -565,9 +558,6 @@ ________________________________
 **Conflicts**: Deadline
 
 **Dependencies**: None
-______________________________
-
-#### 3.5.2 Cost
 _______________________
 **Requirement Name**: Low Cost
 
@@ -588,9 +578,6 @@ _______________________
 **Conflicts**: Database Interface, Account System
 
 **Dependencies**: None
-_________________________
-
-#### 3.5.3 Deadline
 _______________________
 **Requirement Name**: Deadline
 
