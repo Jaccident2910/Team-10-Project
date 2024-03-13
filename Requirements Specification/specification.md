@@ -127,6 +127,7 @@ Since we will be making most of this from scratch, there are very few external a
 | Basic Flow |  1) User navigates to relevant puzzle page. <br> 2) User downloads any required material to solve the puzzle. <br> 3) User solves the puzzle. <br> 4) User submits their answer and code for review <br> 5) If correct, they are awarded points, otherwise they could be given hints to progress |
 | Post-conditions | The user has the relevant points and/or achievements/awards for solving the puzzle |
 | Alternative Flow | User solves an introductory puzzle while not being logged in, <br> and upon solving is prompted to create an account to save their progress |
+| [Prototype]()
 
 | ID | UC2 | 
 | ----------- | ---------------- | 
@@ -371,6 +372,24 @@ ____________________
 **Dependencies**: None
 
 _____________________
+
+#### 3.1.4 Prototypes
+
+##### Main Puzzle Screen:
+![Puzzles](https://github.com/Jaccident2910/Team-10-Project/blob/main/Requirements%20Specification/Main%20Puzzle%20Screen.png?raw=true)
+
+##### Trophies Side-screen:
+![Trophies](https://github.com/Jaccident2910/Team-10-Project/blob/main/Requirements%20Specification/Trophies%20Side-screen.png?raw=true)
+
+##### Log In:
+![Log In](https://github.com/Jaccident2910/Team-10-Project/blob/main/Requirements%20Specification/Log%20In.png?raw=true)
+
+##### Register Candidate
+![Register](https://github.com/Jaccident2910/Team-10-Project/blob/main/Requirements%20Specification/Register%20Candidate.png?raw=true)
+
+##### Register Employer
+![Register Employer](https://github.com/Jaccident2910/Team-10-Project/blob/main/Requirements%20Specification/Register%20Employer.png?raw=true)
+
 
 ### 3.2 Functional
 ___________________________
