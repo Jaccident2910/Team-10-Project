@@ -1,7 +1,7 @@
 # Software Requirements Specification
 ## For the Technical Talent Finding System
 
-Version 0.1  
+Version 0.3  
 Prepared by Jack Harris  
 Team 10 of the 2024 Oxford CompSci Second Year Group Design Practical  
 created 2024/02/27
@@ -13,8 +13,6 @@ Table of Contents
   * 1.1 [Document Purpose](#11-document-purpose)
   * 1.2 [Product Scope](#12-product-scope)
   * 1.3 [Definitions, Acronyms and Abbreviations](#13-definitions-acronyms-and-abbreviations)
-  * 1.4 [References](#14-references)
-  * 1.5 [Document Overview](#15-document-overview)
 * 2 [Product Overview](#2-product-overview)
   * 2.1 [Product Perspective](#21-product-perspective)
   * 2.2 [Product Functions](#22-product-functions)
@@ -28,22 +26,15 @@ Table of Contents
     * 3.1.1 [User Interfaces](#311-user-interfaces)
     * 3.1.2 [Hardware Interfaces](#312-hardware-interfaces)
     * 3.1.3 [Software Interfaces](#313-software-interfaces)
+    * 3.1.4 [Prototypes](#314-prototypes)
   * 3.2 [Functional](#32-functional)
-  * 3.3 [Quality of Service](#33-quality-of-service)
-    * 3.3.1 [Security](#331-security)
-  * 3.4 [Compliance](#34-compliance)
-  * 3.5 [Design and Implementation](#35-design-and-implementation)
-    * 3.5.2 [Cost](#352-cost)
-    * 3.5.3 [Deadline](#353-deadline)
+  * 3.3 [Non-Functional](33-non-functional)
 * 4 [Verification](#4-verification)
-* 5 [Appendixes](#5-appendixes)
-
+  
 ## Revision History
 | Name | Date    | Reason For Changes  | Version   |
 | ---- | ------- | ------------------- | --------- |
-|      |         |                     |           |
-|      |         |                     |           |
-|      |         |                     |           |
+| Jack | 2024/03/12 | Adding prototypes and decluttering document | 0.3 |
 
 ## 1. Introduction
 This document will act as the specification from which Team 10 shall produce a talent finding system for Microsoft. This system will enable Microsoft to find talented individuals who would be suited to working in a software development role, and it will do so in ways specified in this document.
@@ -60,12 +51,6 @@ The purpose of the product is to enable Microsoft to find talented potential hir
 "The client", "Microsoft": The client for this project, consisting primarily of Lilia Georgieva, but including Microsoft as a whole.
 
 "The users", "the applicants", "the candidates": The people who will be solving the puzzles in this system and participating in the rankings. In other words, the people the client will want to consider as potential applicants for graduate software roles.
-
-### 1.4 References
-[UML Use Case Diagrams]
-
-### 1.5 Document Overview
-Describe what the rest of the document contains and how it is organized.
 
 ## 2. Product Overview
 
