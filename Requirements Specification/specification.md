@@ -127,7 +127,8 @@ Since we will be making most of this from scratch, there are very few external a
 | Basic Flow |  1) User navigates to relevant puzzle page. <br> 2) User downloads any required material to solve the puzzle. <br> 3) User solves the puzzle. <br> 4) User submits their answer and code for review <br> 5) If correct, they are awarded points, otherwise they could be given hints to progress |
 | Post-conditions | The user has the relevant points and/or achievements/awards for solving the puzzle |
 | Alternative Flow | User solves an introductory puzzle while not being logged in, <br> and upon solving is prompted to create an account to save their progress |
-| [Prototype]()
+| [Prototype](#main-puzzle-screen)
+
 
 | ID | UC2 | 
 | ----------- | ---------------- | 
@@ -139,6 +140,7 @@ Since we will be making most of this from scratch, there are very few external a
 | Basic Flow | 1) User navigates to registration screen. <br> 2) User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details. <br> 4) User details are transmitted to acounts system <br> 5) A new account entry is created for this user with the appropriate details. <br> 6) The user is sent to the login screen to enter their details. |
 | Post-conditions | The user now has an account with login details they know, and they can log into this account to track their progress|
 | Alternative Flow |1) User navigates to the registration screen. <br> User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details, but the username or email have already been used for a previous account. <br> 4) User is informed of the problem, and if their email is the one that has already been used, they are prompted to reset their username/password |
+|[Prototype](#register-candidate)|
 
 | ID | UC3 | 
 | ----------- | ---------------- | 
@@ -150,7 +152,7 @@ Since we will be making most of this from scratch, there are very few external a
 | Basic Flow | 1) User navigates to registration screen. <br> 2) User clicks the "I'm an employer button". <br> 3) User is prompted for their new login details, including username, password and email, alongside a method to verify they are an employer. <br>4) User fills in their details. <br> 4) User details are transmitted to acounts system <br> 5) The details are verified to ensure that this account should be an employer account. 6) A new account entry is created for this user with the appropriate details. <br> 7) The user is sent to the login screen to enter their details. |
 | Post-conditions | The user now has an employer account with login details they know, and they can log into this account to track their progress|
 | Alternative Flow |1) User navigates to the registration screen. <br> User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details, but their details fail the employer verification process. <br> 4) User is informed of the problem, and can try to enter the correct details instead. |
-
+|[Prototype](#register-employer)|
 
 | ID | UC3 | 
 | ----------- | ---------------- | 
@@ -162,6 +164,7 @@ Since we will be making most of this from scratch, there are very few external a
 | Basic Flow | 1) User enters credentials into relevant fields, as well as a checkbox that allows them to skip log-in process in the future. <br> 2) If credentials are verified by the database, provide access to home page. <br> •	For students,  home page will display relevant details such as their score, position on leaderboard, previously submitted code and future problems. <br>•	For administrators, home page will display options to edit and add problems as well as view student solutions. <br> 3)	If credientials are incorrect, allow the user to enter incorrect details a total of 5 times before locking account for 5 minutes. |
 | Post-conditions | Students and adminstrators will have access to their relevant accounts. |
 | Alternative Flows | •	Allow the user to reset their password through a button prompt and a relevant email entered. <br> •	If the application is opened and user has previously selected 'Remember Me', skip log in process and open account straightaway.  |
+|[Prototype](#log-in)|
 
 | ID | UC4 | 
 | ----------- | ---------------- | 
@@ -195,6 +198,7 @@ Since we will be making most of this from scratch, there are very few external a
 | Basic Flow | 1) User clicks on the Trophies tab. <br> 2) User can see a graphical depiction of the trophies they have, alongside a name for each trophy. <br> 3) User can hover over trophies to learn what that trophy was earned for.  <br> 4) User can view the percentage of trophies they have gained, and the requirements for each one. <br> 5) User can close the Trophies tab. |
 | Post-conditions | User knows what trophies they have unlocked and feels motivated to unlock more. |
 | Alternative Flow | 1) User is an Employer. <br> 2) User has navigated to a Candidate's page. <br> 3) User can view all the trophies a User has earned. |
+|[Prototype](#trophies-side-screen)|
 
 
 ### 3.1 External Interfaces
