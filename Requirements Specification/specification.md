@@ -142,7 +142,7 @@ Since we will be making most of this from scratch, there are very few external a
 | Alternative Flow |1) User navigates to the registration screen. <br> User is prompted for their new login details, including username, password and email. <br> 3) User fills in their details, but their details fail the employer verification process. <br> 4) User is informed of the problem, and can try to enter the correct details instead. |
 |[Prototype](#register-employer)|
 
-| ID | UC3 | 
+| ID | UC4 | 
 | ----------- | ---------------- | 
 |      Name       | Log In |           
 | Description | Log a user in to their account. | 
@@ -154,7 +154,7 @@ Since we will be making most of this from scratch, there are very few external a
 | Alternative Flows | •	Allow the user to reset their password through a button prompt and a relevant email entered. <br> •	If the application is opened and user has previously selected 'Remember Me', skip log in process and open account straightaway.  |
 |[Prototype](#log-in)|
 
-| ID | UC4 | 
+| ID | UC5 | 
 | ----------- | ---------------- | 
 |      Name       | View Code for Puzzle Answers |           
 | Description | Be able to access/download the code provided alongside a puzzle answer. | 
@@ -165,7 +165,7 @@ Since we will be making most of this from scratch, there are very few external a
 | Post-conditions | Relevant code will be displayed by the page or provided for download. |
 | Alternative Flow | 1)	User navigates to the account page of a Candidate. <br> 2)	If the user is either an administrator or logged in to the relevant account, the page will display a list of puzzles that the Candidate has solved 3)	User can click on a problem to see the Candidate’s code submission for the problem |
   
-| ID | UC5 | 
+| ID | UC6 | 
 | ----------- | ---------------- | 
 |      Name       | View Rankings of Candidates |           
 | Description | View the rankings of all the candidates in the system. Also provides the ability to view just the top 10% of candidates. | 
@@ -176,7 +176,7 @@ Since we will be making most of this from scratch, there are very few external a
 | Post-conditions | The ranking will be displayed by the page. |
 | Alternative Flow | 1)	User navigates to the account of a Candidate <br> 2)	User clicks on the “view ranking” button. <br> 3)	The ranking will be displayed as a list of Candidates, each identified by their name and number of puzzles solved. The list is sorted in decreasing order of the number of puzzles solved. <br> 4)	The entry associated with the account will be highlighted and the page will display the list with the highlighted entry in the center. |
 
-| ID | UC6 | 
+| ID | UC7 | 
 | ----------- | ---------------- | 
 |      Name       | View Trophies |           
 | Description | View all the trophies a user has gained over the course of their time using the system. | 
