@@ -59,6 +59,7 @@ This product is being produced as part of the 2024 Group Design Practicals done 
 
 ### 2.2 Product Functions
 The product shall:
+
 * Provide a series of puzzles to the user for them to complete
 * Provide a place for users to upload their code for their answers
 
@@ -71,6 +72,7 @@ The product shall:
 
 ### 2.3 Product Constraints
 The product will have the following constraints:
+
 * The product will have to run in the web browser.
 * The product will have to have its backend running on a lightweight server.
 * The product will have to be developed within 2 months.
