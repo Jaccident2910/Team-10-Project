@@ -25,6 +25,17 @@ pip install mysql-connector-python
 
 This project uses Django version 5.0.3
 
+when trying to install `mysqlclient` I ran into some issues with dependencies. Running
+```
+sudo apt-get install python3-dev default-libmysqlclient-dev build essential pkg-config
+```
+Solved the issue.
+
+I then ran
+```
+python3 manage.py migrate
+```
+in the application folder.
 
 #### Setup Files
 
