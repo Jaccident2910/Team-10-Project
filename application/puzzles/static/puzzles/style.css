@@ -1,0 +1,41 @@
+.container {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, .75rem);
+    padding-left: var(--bs-gutter-x, .75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.menu-button {
+    display: block;
+    min-width: 7rem;
+    color: white;
+    cursor: pointer;
+    float: left;
+}
+
+.account-button {
+    display: block;
+    min-width: 7rem;
+    color: white;
+    cursor: pointer;
+    float: right;
+}
+
+header {
+    background-color: RoyalBlue;
+    padding: 20px;    
+    min-height: 28px;
+}
+
+div {
+    display: block;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    text-align: center
+}
