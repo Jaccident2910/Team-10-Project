@@ -39,4 +39,6 @@ class SignupUserCreationForm(UserCreationForm):
             self.cleaned_data['email'],  
             self.cleaned_data['password1']  
         )  
+        if commit:
+            user.save()
         return user

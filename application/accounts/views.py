@@ -12,25 +12,18 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm  
 from .forms import SignupUserCreationForm  
 from django.urls import reverse_lazy
+from django.views.generic.edit import FormView
 # Create your views here.
 
 
+class SignupFormView(FormView):
+    form_class = SignupUserCreationForm
+    success_url = reverse_lazy("login")
+    template_name = "registration/signup.html"
 
-def signUp (request):  
-    if request.POST == 'POST':  
-        form = SignupUserCreationForm()  
-        if form.is_valid():  
-            print("valid form!")
-            form.save()
-            redirect(reverse_lazy("login"))  
-    else:  
-        form = SignupUserCreationForm()  
-    context = {  
-        'form':form  
-    }  
-    return render(request, 'registration/signup.html', context)  
-
-
+    def form_valid(self, form):
+        form.save()
+        return(super().form_valid(form))
 
 '''
 class SignUpView(CreateView):
