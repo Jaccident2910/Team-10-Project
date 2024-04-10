@@ -22,6 +22,14 @@
     float: right;
 }
 
+#puzzle-content {
+    float: left;
+}
+
+#answer-box {
+    float: right;
+}
+
 header {
     background-color: RoyalBlue;
     padding: 20px;    
