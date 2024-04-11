@@ -23,11 +23,19 @@
 }
 
 #puzzle-content {
-    float: left;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 75%;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 0.1rem;
+    background-color: lightgray;
 }
 
 #answer-box {
-    float: right;
+    margin: auto;
+    width: 75%;
 }
 
 header {
