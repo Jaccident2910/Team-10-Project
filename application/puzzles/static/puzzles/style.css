@@ -22,6 +22,22 @@
     float: right;
 }
 
+#puzzle-content {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 75%;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 0.1rem;
+    background-color: lightgray;
+}
+
+#answer-box {
+    margin: auto;
+    width: 75%;
+}
+
 header {
     background-color: RoyalBlue;
     padding: 20px;    
