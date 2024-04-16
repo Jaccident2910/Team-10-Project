@@ -8,12 +8,11 @@ class AccountsConfig(AppConfig):
     def ready(self):
     
     # This sets up the array of permissions that let users access certain puzzles.
-
-
+        
         from django.contrib.auth.models import User, Group, Permission 
         from django.contrib.contenttypes.models import ContentType
-        puzzlePerms = []
-
+        
+        
 
         content_type = ContentType.objects.get_for_model(User) 
         # this will almost certainly cause problems later!!
