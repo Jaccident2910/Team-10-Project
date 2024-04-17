@@ -1,13 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Sign Up{% endblock %}
+{% block title %}Register as Employer {% endblock %}
 
 {% block content %}
-<h5>Want to register an employer account? <a href="{% url 'employersignup' %}">Register Here</a></h5>
+<h5>Not an employer? <a href="{% url 'signup' %}">Register Here!</a></h5>
 
-<h2>Sign up</h2>
-
-
+<h2>Register as Employer</h2>
 <form method="post">
   {% csrf_token %}
   {{ form }}

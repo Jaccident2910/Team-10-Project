@@ -2,8 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-#create the permissions for all 15 puzzles:
-
 
 
 

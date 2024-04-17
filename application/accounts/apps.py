@@ -1,6 +1,7 @@
 from django.apps import AppConfig
 
 puzzlePerms = []
+employerGroup = None
 class AccountsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'accounts'
@@ -11,7 +12,7 @@ class AccountsConfig(AppConfig):
         
         from django.contrib.auth.models import User, Group, Permission 
         from django.contrib.contenttypes.models import ContentType
-        
+
         
 
         content_type = ContentType.objects.get_for_model(User) 
