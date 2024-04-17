@@ -1,10 +1,11 @@
 from django import forms  
-from django.contrib.auth.models import User, Group  
+from django.contrib.auth.models import User, Group, Permission  
 from django.contrib.auth.forms import UserCreationForm  
 from django.core.exceptions import ValidationError  
 from django.forms.fields import EmailField  
 from django.forms.forms import Form  
 from .apps import puzzlePerms
+from django.contrib.contenttypes.models import ContentType
     
 class SignupUserCreationForm(UserCreationForm):  
     username = forms.CharField(label='username', min_length=5, max_length=150)  
@@ -88,6 +89,11 @@ class SignupEmployerCreationForm(UserCreationForm):
             )
             user.user_permissions.add(puzzlePerms[0])
             employerGroup = Group.objects.get_or_create(name="Employer")[0]
+            employerGroup.permissions.set([Permission.objects.get_or_create(
+                name="Is Employer",
+                content_type=ContentType.objects.get_for_model(User),
+                codename="is_employer"  
+                )[0]])
             user.groups.add(employerGroup)
             if commit:
                 user.save()

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Rankings{% endblock %}
+
+{% block content %}
+{% if perms.auth %}
+    <p>You have permission to do something in the accounts app.</p>
+    {% if perms.auth.is_employer %}
+        <p>You are an employer!</p>
+    {% endif %}
+{% else %}
+    <p>You don't have permission to do anything in the accounts app.</p>
+{% endif %}
+{% endblock %}

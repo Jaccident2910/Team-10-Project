@@ -10,9 +10,12 @@ from django.contrib.auth import forms
 from django.shortcuts import redirect, render  
 from django.contrib import messages  
 from django.contrib.auth.forms import UserCreationForm  
+from django.contrib.auth.models import User
 from .forms import SignupUserCreationForm, SignupEmployerCreationForm  
 from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
+from django.views.generic.base import TemplateView
+
 # Create your views here.
 
 
@@ -33,6 +36,15 @@ class EmployerSignupFormView(FormView):
     def form_valid(self, form):
         form.save()
         return(super().form_valid(form))
+
+
+class RankingsView(TemplateView):
+    template_name = "rankings.html"
+    full_users = User.objects.all()
+
+
+
+
 
 
 
