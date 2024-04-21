@@ -21,9 +21,9 @@
             {{ puzzle_content }}
         </div>
         <div id="answer-box">
-            {% csrf_token %}
             <form action="{% url 'puzzles:answer' puzzle_id %}" method="post">
-                <input type="text" name="Type answer here:"/>
+                {% csrf_token %}
+                <input type="text" name="answer"/>
                 <input type="submit" value="Submit">
             </form>
         </div>
