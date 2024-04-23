@@ -5,14 +5,36 @@
 {% block content %}
 {% if user.is_authenticated %}
 <p>Hi {{ user.username }}!</p>
-<p><a href="{% url 'password_change' %}">Password Change</a></p>
-<form action="{% url 'logout' %}" method="post">
-  {% csrf_token %}
-  <button type="submit">Log Out</button>
-</form>
-{% else %}
-<p>You are not logged in</p>
-<p><a href="{% url 'password_reset' %}">Password Reset</a></p>
-<p><a href="{% url 'login' %}">Log In</a></p>
 {% endif %}
+Welcome to the Team 10 Programming Challenge!! </br>
+Choose a puzzle to get started!
+
+<div id = "puzzleArea">
+<table>
+<tr>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=0 %}" >Puzzle 1</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=1 %}" >Puzzle 2</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=2 %}" >Puzzle 3</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=3 %}" >Puzzle 4</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=4 %}" >Puzzle 5</a> </td>
+</tr>
+<tr>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=5 %}" >Puzzle 6</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=6 %}" >Puzzle 7</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=7 %}" >Puzzle 8</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=8 %}" >Puzzle 9</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=9 %}" >Puzzle 10</a> </td>
+</tr>
+<tr>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=10 %}" >Puzzle 11</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=11 %}" >Puzzle 12</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=12 %}" >Puzzle 13</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=13 %}" >Puzzle 14</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=14 %}" >Puzzle 15</a> </td>
+</tr>
+
+</table>
+
+
+</div>
 {% endblock %}

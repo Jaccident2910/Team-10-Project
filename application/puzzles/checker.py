@@ -6,7 +6,9 @@ def checkAnswer(puzzle_id, solution):
             return puzzle_id
 
 
-def tower_of_hanoi(n, moves):
+def tower_of_hanoi(n, inmoves):
+    from ast import literal_eval
+    moves = literal_eval(inmoves)
     a = []
     b = []
     c = []

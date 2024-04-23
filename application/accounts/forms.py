@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from django.forms.fields import EmailField  
 from django.forms.forms import Form  
 from .apps import puzzlePerms
+from .models import Account
 from django.contrib.contenttypes.models import ContentType
     
 class SignupUserCreationForm(UserCreationForm):  
@@ -41,9 +42,11 @@ class SignupUserCreationForm(UserCreationForm):
             self.cleaned_data['email'],  
             self.cleaned_data['password1']  
         )
+        account = Account(user=user, puzzles_finished=0)
         user.user_permissions.add(puzzlePerms[0])
         if commit:
             user.save()
+            account.save()
         return user
     
 
@@ -95,8 +98,10 @@ class SignupEmployerCreationForm(UserCreationForm):
                 codename="is_employer"  
                 )[0]])
             user.groups.add(employerGroup)
+            account = Account(user=user, puzzles_finished=0)
             if commit:
                 user.save()
+                account.save()
             return user
         else:
             raise ValidationError("Employer code is incorrect")
