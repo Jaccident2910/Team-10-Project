@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from django.urls import reverse
 from django.contrib.auth.decorators import permission_required
 from .checker import checkAnswer
+from accounts.models import Account
 
 def viewpuzzle(request, puzzle_id):
     puzzle_path = path.join(path.dirname(__file__), f"puzzleContent/{puzzle_id}.html")
@@ -19,6 +20,10 @@ def answer(request, puzzle_id):
     except KeyError:
         return HttpResponseNotFound
     if correct:
+        user = request.user
+        account = Account.objects.get(user=user)
+        account.puzzles_finished = account.puzzles_finished + 1
+        account.save()
         return HttpResponseRedirect(reverse("puzzles:correct", args=(puzzle_id,)))
     else:
         return HttpResponseRedirect(reverse("puzzles:incorrect", args=(puzzle_id,)))
