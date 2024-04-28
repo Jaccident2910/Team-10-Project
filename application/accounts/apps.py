@@ -6,7 +6,7 @@ class AccountsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'accounts'
     
-    def ready(self):
+    '''def ready(self):
     
     # This sets up the array of permissions that let users access certain puzzles.
         
@@ -25,7 +25,7 @@ class AccountsConfig(AppConfig):
                 name = "Puzzle " + str(i),
                 content_type = content_type,
             )[0]
-            puzzlePerms.append(newPerm)
+            puzzlePerms.append(newPerm)'''
 
 
 

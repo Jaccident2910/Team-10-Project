@@ -44,7 +44,7 @@ class RankingsView(ListView):
     
     def get_queryset(self):
         #queryset = User.objects.all()
-        queryset = Account.objects.all().order_by('-puzzles_finished').values('id','user__username','puzzles_finished')
+        queryset = Account.objects.all().order_by('-puzzles_finished').values('id','user__username','user__email','puzzles_finished', Account.completedPuzzles[0])
         return queryset
 
     '''

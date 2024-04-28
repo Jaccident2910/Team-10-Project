@@ -11,7 +11,11 @@
         {% for obj in object_list %}
         <tr>
             <td>{{obj.user__username}} </td>
+            <td>{{obj.user__email}}
             <td>{{obj.puzzles_finished}}</td>
+            {% for completed in obj.completedPuzzles %}
+            <td>{{completed}}</td>
+            {% endfor %}
             <!--{% for fld, val in obj.get_fields_and_values %}
             <td>{{ fld.name }} : {{ val }}</td>
             {% endfor %}

@@ -7,6 +7,7 @@ from django.forms.forms import Form
 from .apps import puzzlePerms
 from .models import Account
 from django.contrib.contenttypes.models import ContentType
+from random import randint
     
 class SignupUserCreationForm(UserCreationForm):  
     username = forms.CharField(label='username', min_length=5, max_length=150)  
@@ -43,7 +44,6 @@ class SignupUserCreationForm(UserCreationForm):
             self.cleaned_data['password1']  
         )
         account = Account(user=user, puzzles_finished=0)
-        user.user_permissions.add(puzzlePerms[0])
         if commit:
             user.save()
             account.save()
@@ -90,7 +90,6 @@ class SignupEmployerCreationForm(UserCreationForm):
                 self.cleaned_data['email'],  
                 self.cleaned_data['password1']  
             )
-            user.user_permissions.add(puzzlePerms[0])
             employerGroup = Group.objects.get_or_create(name="Employer")[0]
             employerGroup.permissions.set([Permission.objects.get_or_create(
                 name="Is Employer",
@@ -98,6 +97,7 @@ class SignupEmployerCreationForm(UserCreationForm):
                 codename="is_employer"  
                 )[0]])
             user.groups.add(employerGroup)
+            theSeed = randint()
             account = Account(user=user, puzzles_finished=0)
             if commit:
                 user.save()
