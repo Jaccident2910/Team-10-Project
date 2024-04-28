@@ -12,8 +12,8 @@ import pickle
 def viewpuzzle(request, puzzle_id):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("accounts:signup"))
-    if request.user.account.puzzles_finished:
-        solved_puzzles = pickle.loads(request.user.account.puzzles_finished)
+    if request.user.account.solved_puzzles:
+        solved_puzzles = pickle.loads(request.user.account.solved_puzzles)
         if puzzle_id in solved_puzzles:
             return HttpResponseRedirect(reverse("puzzles:error", args=(puzzle_id,)))
     puzzle_path = path.join(path.dirname(__file__), f"templates/puzzleContent/{puzzle_id}.html")
@@ -36,8 +36,8 @@ def download_file_1(request):
 
 
 def answer(request, puzzle_id):
-    if request.user.account.puzzles_finished:
-        solved_puzzles = pickle.loads(request.user.account.puzzles_finished)
+    if request.user.account.solved_puzzles:
+        solved_puzzles = pickle.loads(request.user.account.solved_puzzles)
     else:
         solved_puzzles = set()
     if puzzle_id in solved_puzzles:
@@ -51,7 +51,7 @@ def answer(request, puzzle_id):
         account = Account.objects.get(user=user)
         account.puzzles_finished = account.puzzles_finished + 1
         solved_puzzles.add(puzzle_id)
-        account.puzzles_finished = pickle.dumps(solved_puzzles)
+        account.solved_puzzles = pickle.dumps(solved_puzzles)
         account.save()
         return HttpResponseRedirect(reverse("puzzles:correct", args=(puzzle_id,)))
     else:
