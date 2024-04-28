@@ -7,8 +7,15 @@ from .checker import checkAnswer
 from accounts.models import Account
 from django.contrib.auth.models import User
 from accounts.apps import puzzlePerms
+import pickle
 
 def viewpuzzle(request, puzzle_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("accounts:signup"))
+    if request.user.account.solved_puzzles:
+        solved_puzzles = pickle.loads(request.user.account.solved_puzzles)
+        if puzzle_id in solved_puzzles:
+            return HttpResponseRedirect(reverse("puzzles:error", args=(puzzle_id,)))
     puzzle_path = path.join(path.dirname(__file__), f"templates/puzzleContent/{puzzle_id}.html")
     with open(puzzle_path, "r") as puzzle_file:
         puzzle_content = puzzle_file.read()
@@ -29,6 +36,12 @@ def download_file_1(request):
 
 
 def answer(request, puzzle_id):
+    if request.user.account.solved_puzzles:
+        solved_puzzles = pickle.loads(request.user.account.solved_puzzles)
+    else:
+        solved_puzzles = set()
+    if puzzle_id in solved_puzzles:
+        return HttpResponseRedirect(reverse("puzzles:error", args=(puzzle_id,)))
     try:
         correct = checkAnswer(puzzle_id, request.POST["answer"])
     except KeyError:
@@ -36,15 +49,11 @@ def answer(request, puzzle_id):
     if correct:
         user = request.user
         account = Account.objects.get(user=user)
-        accRandom = Account.account_random
-        if(False):
-            return HttpResponseRedirect(reverse("puzzles:error", args=(puzzle_id,)))
-        else:
-            account.puzzles_finished = account.puzzles_finished + 1
-            #account.completedPuzzles[puzzle_id] = True
-            account.save()
-            #user.user_permissions.add(puzzlePerms[puzzle_id])
-            return HttpResponseRedirect(reverse("puzzles:correct", args=(puzzle_id,)))
+        account.puzzles_finished = account.puzzles_finished + 1
+        solved_puzzles.add(puzzle_id)
+        account.solved_puzzles = pickle.dumps(solved_puzzles)
+        account.save()
+        return HttpResponseRedirect(reverse("puzzles:correct", args=(puzzle_id,)))
     else:
         return HttpResponseRedirect(reverse("puzzles:incorrect", args=(puzzle_id,)))
 
