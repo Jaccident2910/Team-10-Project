@@ -10,7 +10,7 @@ class Account(User):
 
 class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    puzzles_finished = models.IntegerField()
+    puzzles_finished = models.BinaryField(blank=True, null=True)
     account_random = models.IntegerField(default="0")
     '''completedPuzzles = []
     for i in range(0,15):account = Account.objects.get(user=user)
