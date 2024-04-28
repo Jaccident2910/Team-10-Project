@@ -36,6 +36,7 @@ def answer(request, puzzle_id):
     if correct:
         user = request.user
         account = Account.objects.get(user=user)
+        accRandom = Account.account_random
         if(False):
             return HttpResponseRedirect(reverse("puzzles:error", args=(puzzle_id,)))
         else:
