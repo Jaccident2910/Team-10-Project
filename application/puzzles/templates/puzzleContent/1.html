@@ -1,7 +1,4 @@
 <h1>Georgi puzzle 1</h1>
 
 
-<form method="get">
-    {% csrf_token %}
-    <button type="submit">Download text</button>
-</form>
+<button > <a href="{% url 'puzzles:download_file_1' %}">Download</a></button>

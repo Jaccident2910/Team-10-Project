@@ -18,7 +18,7 @@ def viewpuzzle(request, puzzle_id):
 
 def download_file_1(request):
     # fill these variables with real values
-    fl_path = 'static/puzzleData.1_data'
+    fl_path = path.join(path.dirname(__file__), f"static/puzzleData/1_data.txt")
     filename = "1_data"
 
     fl = open(fl_path, "r")
@@ -36,11 +36,11 @@ def answer(request, puzzle_id):
     if correct:
         user = request.user
         account = Account.objects.get(user=user)
-        if(account.completedPuzzles[puzzle_id]):
+        if(False):
             return HttpResponseRedirect(reverse("puzzles:error", args=(puzzle_id,)))
         else:
             account.puzzles_finished = account.puzzles_finished + 1
-            account.completedPuzzles[puzzle_id] = True
+            #account.completedPuzzles[puzzle_id] = True
             account.save()
             #user.user_permissions.add(puzzlePerms[puzzle_id])
             return HttpResponseRedirect(reverse("puzzles:correct", args=(puzzle_id,)))
