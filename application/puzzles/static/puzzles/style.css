@@ -17,7 +17,7 @@
 .account-button {
     display: block;
     min-width: 7rem;
-    color: white;
+    color: red;
     cursor: pointer;
     float: right;
 }
@@ -35,7 +35,7 @@
     outline-style: solid;
     outline-color: black;
     outline-width: 0.1rem;
-    background-color: lightgray;
+    background-color: red;
 }
 
 #answer-box {
@@ -52,7 +52,7 @@
 }
 
 header {
-    background-color: RoyalBlue;
+    background-color: red;
     padding: 20px;    
     min-height: 28px;
 }
