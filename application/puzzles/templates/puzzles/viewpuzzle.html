@@ -15,7 +15,7 @@
             {% include puzzle_path %}
         </div>
         <div id="answer-box">
-            <form action="{% url 'puzzles:answer' puzzle_id %}" method="post">
+            <form action="{% url 'puzzles:answer' puzzle_id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <label for="code">Optionally upload the code you used to generate your solution:</label>
                 <input type="file" name="code"/> <br>

@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from django.urls import reverse
 from django.contrib.auth.decorators import permission_required
 from .checker import checkAnswer
-from accounts.models import Account
+from accounts.models import Account, CodeSubmission
 from django.contrib.auth.models import User
 from accounts.apps import puzzlePerms
 import pickle
@@ -53,6 +53,10 @@ def answer(request, puzzle_id):
         solved_puzzles.add(puzzle_id)
         account.solved_puzzles = pickle.dumps(solved_puzzles)
         account.save()
+        if "code" in request.FILES:
+            code_file = request.FILES["code"]
+            submission = CodeSubmission.create(request.user, puzzle_id, code_file)
+            submission.save()
         return HttpResponseRedirect(reverse("puzzles:correct", args=(puzzle_id,)))
     else:
         return HttpResponseRedirect(reverse("puzzles:incorrect", args=(puzzle_id,)))
