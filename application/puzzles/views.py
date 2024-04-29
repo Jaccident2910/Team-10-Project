@@ -36,11 +36,11 @@ def answer(request, puzzle_id):
     if correct:
         user = request.user
         account = Account.objects.get(user=user)
-        if(account.completedPuzzles[puzzle_id]):
+        if(False): #account.completedPuzzles[puzzle_id]
             return HttpResponseRedirect(reverse("puzzles:error", args=(puzzle_id,)))
         else:
             account.puzzles_finished = account.puzzles_finished + 1
-            account.completedPuzzles[puzzle_id] = True
+            #account.completedPuzzles[puzzle_id] = True
             account.save()
             #user.user_permissions.add(puzzlePerms[puzzle_id])
             return HttpResponseRedirect(reverse("puzzles:correct", args=(puzzle_id,)))

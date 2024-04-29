@@ -3,9 +3,8 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<!-- {% load static %}
-<link rel="stylesheet" href="{% static 'puzzles/style.css' %}"> -->
-
+{% load static %}
+<link rel="stylesheet" href="{% static 'puzzles/style.css' %}">
     <div id="app">
         <div>
             <h1>
@@ -18,7 +17,7 @@
         <div id="answer-box">
             <form action="{% url 'puzzles:answer' puzzle_id %}" method="post">
                 {% csrf_token %}
-                <input type="text" name="answer"/>
+                <textarea name="answer"></textarea>
                 <input type="submit" value="Submit">
             </form>
         </div>
