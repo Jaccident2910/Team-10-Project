@@ -40,7 +40,10 @@ class Account(models.Model):
     def get_fields_and_values(self):
         return [(field, field.value_to_string(self)) for field in Account._meta.fields]
 
-
+class CodeSubmission(models.Model):
+    account = models.ForeignKey(Account, on_delete=models.CASCADE)
+    puzzle = models.IntegerField()
+    file = models.FileField(upload_to=f"uploads/{account}")
 
 
 '''
