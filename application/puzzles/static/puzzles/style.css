@@ -22,6 +22,11 @@
     float: right;
 }
 
+.icon {
+    width: 100%;
+    height: auto;
+}
+
 #puzzle-content {
     margin: auto;
     margin-top: 20px;
@@ -36,6 +41,14 @@
 #answer-box {
     margin: auto;
     width: 75%;
+}
+
+#trophyCabinet {
+    padding: 5%;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    column-gap: 5%;
+    row-gap: 40px;
 }
 
 header {

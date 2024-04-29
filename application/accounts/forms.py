@@ -43,7 +43,8 @@ class SignupUserCreationForm(UserCreationForm):
             self.cleaned_data['email'],  
             self.cleaned_data['password1']  
         )
-        account = Account(user=user, puzzles_finished=0)
+        theSeed = randint()
+        account = Account(user=user, puzzles_finished=0, account_random=theSeed)
         if commit:
             user.save()
             account.save()
@@ -98,7 +99,7 @@ class SignupEmployerCreationForm(UserCreationForm):
                 )[0]])
             user.groups.add(employerGroup)
             theSeed = randint()
-            account = Account(user=user, puzzles_finished=0)
+            account = Account(user=user, puzzles_finished=0, account_random=theSeed)
             if commit:
                 user.save()
                 account.save()
