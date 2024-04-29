@@ -17,9 +17,12 @@
 .account-button {
     display: block;
     min-width: 7rem;
-    color: red;
+    background-color: red;
+    color: white;
+    font-family: 'Montserrat';
     cursor: pointer;
     float: right;
+    margin-top: -10px;
 }
 
 .icon {
@@ -55,6 +58,7 @@ header {
     background-color: red;
     padding: 20px;    
     min-height: 28px;
+    margin-bottom: 20px;
 }
 
 div {
@@ -67,4 +71,8 @@ body {
 
 h1 {
     text-align: center
+}
+
+p {
+    color: black;
 }
