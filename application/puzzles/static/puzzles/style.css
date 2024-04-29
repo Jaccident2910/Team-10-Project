@@ -23,7 +23,7 @@
 }
 
 .icon {
-    width: 20%;
+    width: 100%;
     height: auto;
 }
 
@@ -41,6 +41,14 @@
 #answer-box {
     margin: auto;
     width: 75%;
+}
+
+#trophyCabinet {
+    padding: 5%;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    column-gap: 5%;
+    row-gap: 40px;
 }
 
 header {
