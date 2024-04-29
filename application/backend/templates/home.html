@@ -1,36 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <style>
+    
+    #easyButton {
+      background-color: #ccfcde;
+      font-family: 'Montserrat';font-size: 22px;
+    
+  }
+
+    #mediumButton {
+      background-color: #fcf2cc;
+      font-family: 'Montserrat';font-size: 22px;
+    }
+
+    #hardButton {
+      background-color: #fcd8cc;
+      font-family: 'Montserrat';font-size: 22px;
+    }
+
+    #greetingText{
+      margin-top: 40px;
+      color: black;
+      font-family: 'Montserrat';font-size: 22px;
+      text-align: center;
+
+    }
+
+    table, tr, td{
+      border-spacing: 50px;
+      margin-left: auto;
+      margin-right:auto;
+      margin-top: -5px;
+
+    }
+
+    body{
+      background-color:#faf8f7
+    }
+
+    </style>
+    </head>
+<body>
+
 {% extends "base.html" %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
-<p>Hi {{ user.username }}!</p>
+<p id="greetingText">Hi {{ user.username }}!</p>
 {% endif %}
-Welcome to the Team 10 Programming Challenge!! </br>
-Choose a puzzle to get started!
+<p id="greetingText">Welcome to the Team 10 Programming Challenge! </br>
+Choose a puzzle to get started!</p>
 
 <div id = "puzzleArea">
 <table>
 <tr>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=0 %}" >Puzzle 1</a> </td>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=1 %}" >Puzzle 2</a> </td>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=2 %}" >Puzzle 3</a> </td>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=3 %}" >Puzzle 4</a> </td>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=4 %}" >Puzzle 5</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=0 %}" ><button id="easyButton">Puzzle 1</button></a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=1 %}" ><button id="easyButton">Puzzle 2</button></a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=2 %}" ><button id="easyButton">Puzzle 3</button></a> </td>
 </tr>
 <tr>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=5 %}" >Puzzle 6</a> </td>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=6 %}" >Puzzle 7</a> </td>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=7 %}" >Puzzle 8</a> </td>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=8 %}" >Puzzle 9</a> </td>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=9 %}" >Puzzle 10</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=5 %}" ><button id="mediumButton">Puzzle 4</button></a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=6 %}" ><button id="mediumButton">Puzzle 5</button></a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=7 %}" ><button id="mediumButton">Puzzle 6</button></a> </td>
 </tr>
 <tr>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=10 %}" >Puzzle 11</a> </td>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=11 %}" >Puzzle 12</a> </td>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=12 %}" >Puzzle 13</a> </td>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=13 %}" >Puzzle 14</a> </td>
-  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=14 %}" >Puzzle 15</a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=10 %}" ><button id="hardButton">Puzzle 7</button></a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=11 %}" ><button id="hardButton">Puzzle 8</button></a> </td>
+  <td> <a href="{% url 'puzzles:viewpuzzle' puzzle_id=12 %}" ><button id="hardButton">Puzzle 9</button></a> </td>
 </tr>
 
 </table>
@@ -38,3 +78,6 @@ Choose a puzzle to get started!
 
 </div>
 {% endblock %}
+
+</body>
+</html>

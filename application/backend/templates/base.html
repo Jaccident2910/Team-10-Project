@@ -6,6 +6,13 @@
   <title>{% block title %}Talent Finder System!!{% endblock %}</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'puzzles/style.css' %}">
+  <style>
+    p{
+      margin-top: -10px;
+      color: white;
+      font-family: 'Montserrat';
+    }
+  </style>
 </head>
 
 <body>
@@ -17,7 +24,7 @@
         </div> </a>
         <a href="{% url 'accountHome' %}">
         <span class="account-button">
-          <p>My Account <svg width="28" height="28" viewBox="0 0 24 24" style="fill: LightGray;"><circle cx="12" cy="12" r="12"/></svg> </p>           
+          <p>My Account <svg width="28" height="28" viewBox="0 0 24 24" style="fill: LightGray;"></svg> </p>           
         </span>
       </a>
     </div>
