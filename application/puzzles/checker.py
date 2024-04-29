@@ -1,3 +1,5 @@
+from os import path
+
 def checkAnswer(puzzle_id, solution):
     match puzzle_id:
         case 0:
@@ -258,6 +260,6 @@ def grade(input: str, contestant_output: str, output: str):
 
     return 0
 
-with open("C:/Users/Raul/Documents/GitHub/Team-10-Project/application/puzzles/in", "r") as f, open("C:/Users/Raul/Documents/GitHub/Team-10-Project/application/puzzles/out", "r") as f1:
+with open(path.join(path.dirname(__file__), f"in"), "r") as f, open(path.join(path.dirname(__file__), f"out"), "r") as f1:
     input = f.read()
     output = f1.read()
