@@ -1,10 +1,30 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>     
+      p{
+      margin-top: -10px;
+      color: white;
+      font-family: 'Montserrat';
+    }
+
+    #hiUsername{
+      color: black;
+      text-align: center;
+    }
+
+    
+    </style>
+  </head>
+</html>
+
 {% extends "base.html" %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
-<p>Hi {{ user.username }}!</p>
+<p id="hiUsername">Hi {{ user.username }}!</p>
 <p><a href="{% url 'trophies' %}">View your trophies</a></p>
 <p><a href="{% url 'password_change' %}">Password Change</a></p>
 <form action="{% url 'logout' %}" method="post">
@@ -14,6 +34,7 @@
 {% else %}
 <p>You are not logged in</p>
 <p><a href="{% url 'password_reset' %}">Password Reset</a></p>
-<p><a href="{% url 'login' %}">Log In</a></p>
+<p><a href="{% url 'login' %}"><button>Log In</button></a></p>
+<p><a href="{% url 'signup' %}"><button>Sign Up</button></a></p>
 {% endif %}
 {% endblock %}
