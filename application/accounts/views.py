@@ -16,9 +16,24 @@ from .forms import SignupUserCreationForm, SignupEmployerCreationForm
 from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
 from django.views.generic.list import ListView
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from os import path
+import pickle
 
 # Create your views here.
-
+def trophies(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("signup"))
+    if request.user.account.solved_puzzles:
+        solved_puzzles = pickle.loads(request.user.account.solved_puzzles)
+    else:
+        solved_puzzles = set()
+    trophies = []
+    for puzzle in solved_puzzles:
+        trophies.append(f"{puzzle}.png")
+    return render(request, "trophies.html", {"trophies": trophies})
+    
 
 class SignupFormView(FormView):
     form_class = SignupUserCreationForm
