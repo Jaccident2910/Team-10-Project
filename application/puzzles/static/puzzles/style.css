@@ -22,6 +22,11 @@
     float: right;
 }
 
+.icon {
+    width: 20%;
+    height: auto;
+}
+
 #puzzle-content {
     margin: auto;
     margin-top: 20px;

@@ -3,7 +3,6 @@ from django.views.generic.base import TemplateView
 from .views import SignupFormView, EmployerSignupFormView, RankingsView
 from . import views
 
-
 urlpatterns = [
     path("signup/", SignupFormView.as_view(), name="signup"),
     path("employersignup/", EmployerSignupFormView.as_view(), name="employersignup"),
