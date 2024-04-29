@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Trophies{% endblock %}
+
+{% block content %}
+{% load static %}
+<h1>These are your trophies</h1> </br>
+<div id="trophyCabinet">
+    {% for trophy in trophies %}
+    <div class="trophy">
+        <img src="{% static trophy %}">
+    </div>
+    {% endfor %}
+</table>
+{% endblock %}
