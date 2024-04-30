@@ -11,7 +11,7 @@ from django.shortcuts import redirect, render
 from django.contrib import messages  
 from django.contrib.auth.forms import UserCreationForm  
 from django.contrib.auth.models import User
-from .models import Account
+from .models import Account, CodeSubmission
 from .forms import SignupUserCreationForm, SignupEmployerCreationForm  
 from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
@@ -59,6 +59,7 @@ def rankings(request):
     for user in queryset:
         if user["solved_puzzles"]:
             user["solved_puzzles"] = pickle.loads(user["solved_puzzles"])
+            user["submissions"] = CodeSubmission.objects.filter(account_id=user["id"])
         else: user["solved_puzzles"] = set()
     return render(request, "rankings.html", {"object_list": queryset})
 

@@ -13,6 +13,7 @@
             <th>Email</th>
             <th>Score</th>
             <th>Puzzles Completed</th>
+            <th>Code Submissions</th>
         </tr>
         {% for obj in object_list %}
         <tr>
@@ -24,10 +25,11 @@
                 {{completed}},
                 {% endfor %}
             </td>
-            <!--{% for fld, val in obj.get_fields_and_values %}
-            <td>{{ fld.name }} : {{ val }}</td>
-            {% endfor %}
-            -->
+            <td>
+                {% for submission in obj.submissions %}
+                <a href= "{{ submission.file.url }}" download>{{submission.puzzle}},</a>
+                {% endfor %}
+            </td>
         </tr>
         {% endfor %}
         </table>
