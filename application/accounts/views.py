@@ -11,7 +11,7 @@ from django.shortcuts import redirect, render
 from django.contrib import messages  
 from django.contrib.auth.forms import UserCreationForm  
 from django.contrib.auth.models import User
-from .models import Account
+from .models import Account, CodeSubmission
 from .forms import SignupUserCreationForm, SignupEmployerCreationForm  
 from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
@@ -54,13 +54,14 @@ class EmployerSignupFormView(FormView):
         return(super().form_valid(form))
 
 
-class RankingsView(ListView):
-    template_name = "rankings.html"
-    
-    def get_queryset(self):
-        #queryset = User.objects.all()
-        queryset = Account.objects.all().order_by('-puzzles_finished').values('id','user__username','user__email','puzzles_finished', Account.completedPuzzles[0])
-        return queryset
+def rankings(request):
+    queryset = Account.objects.all().order_by('-puzzles_finished').values('id','user__username','user__email','puzzles_finished','solved_puzzles')
+    for user in queryset:
+        if user["solved_puzzles"]:
+            user["solved_puzzles"] = pickle.loads(user["solved_puzzles"])
+            user["submissions"] = CodeSubmission.objects.filter(account_id=user["id"])
+        else: user["solved_puzzles"] = set()
+    return render(request, "rankings.html", {"object_list": queryset})
 
     '''
     def get_context_data(self, **kwargs):
