@@ -40,8 +40,16 @@ class Account(models.Model):
     def get_fields_and_values(self):
         return [(field, field.value_to_string(self)) for field in Account._meta.fields]
 
+class CodeSubmission(models.Model):
+    account = models.ForeignKey(Account, on_delete=models.CASCADE)
+    puzzle = models.IntegerField()
+    file = models.FileField(upload_to=lambda instance, filename: f"uploads/{instance.account}/{instance.puzzle}/{filename}")
 
-
+    @classmethod
+    def create(cls, user, puzzle_id, upload):
+        submission = cls(account=user.account, puzzle=puzzle_id, file=upload)
+        # do something with the book
+        return submission
 
 '''
 puzzleGroups = []
