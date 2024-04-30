@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 
 '''
@@ -41,7 +42,7 @@ class Account(models.Model):
         return [(field, field.value_to_string(self)) for field in Account._meta.fields]
 
 def upload_path(instance, filename):
-    return f"uploads/{instance.account}/{instance.puzzle}/{filename}"
+    return f"{setting.MEDIA_ROOT}/uploads/{instance.account}/{instance.puzzle}/{filename}"
 
 class CodeSubmission(models.Model):
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
