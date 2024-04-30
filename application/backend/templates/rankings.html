@@ -8,14 +8,22 @@
     {% if perms.auth.is_employer %}
         <p>You are an employer! </br> Here are the rankings: </br></p>
         <table>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Score</th>
+            <th>Puzzles Completed</th>
+        </tr>
         {% for obj in object_list %}
         <tr>
             <td>{{obj.user__username}} </td>
             <td>{{obj.user__email}}
-            <td>{{obj.puzzles_finished}}</td>
-            {% for completed in obj.completedPuzzles %}
-            <td>{{completed}}</td>
-            {% endfor %}
+            <td style="text-align: right;">{{obj.puzzles_finished}}</td>
+            <td>
+                {% for completed in obj.solved_puzzles %}
+                {{completed}},
+                {% endfor %}
+            </td>
             <!--{% for fld, val in obj.get_fields_and_values %}
             <td>{{ fld.name }} : {{ val }}</td>
             {% endfor %}

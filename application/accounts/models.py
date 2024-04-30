@@ -48,7 +48,6 @@ class CodeSubmission(models.Model):
     @classmethod
     def create(cls, user, puzzle_id, upload):
         submission = cls(account=user.account, puzzle=puzzle_id, file=upload)
-        # do something with the book
         return submission
 
 '''
