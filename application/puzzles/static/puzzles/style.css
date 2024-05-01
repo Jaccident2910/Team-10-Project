@@ -27,6 +27,10 @@
     height: auto;
 }
 
+.results {
+    text-align: center;
+}
+
 #puzzle-content {
     margin: auto;
     margin-top: 20px;
