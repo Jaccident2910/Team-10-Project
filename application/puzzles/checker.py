@@ -6,11 +6,8 @@ def checkAnswer(puzzle_id, solution):
         case 1:
             return tower_of_hanoi(9, solution)
         case 2:
-            return tower_of_hanoi2(6, solution)
-        case 1:
-            return tower_of_hanoi(9, solution)
-        case 2:
-            return tower_of_hanoi2(6, solution)
+            # We are missing the function for this problem - this should stop things breaking until then
+            return tower_of_hanoi(6, solution)
         case 16:
             return True
         case 7:
@@ -307,8 +304,10 @@ def grade_2(solution: str, contestant_solution: str):
     print("Correct answer", file=sys.stderr)
     return 0
 
-
+'''
 def read_test_input_1(input: str):
+    solution = int(input)
+    match (solution):
         case 7:
             with (
                 open("./puzzles/static/puzzleData/7_input.txt", "r") as f,
@@ -349,6 +348,7 @@ def read_test_input_1(input: str):
             return True if solution == 849013480 else False
         case 8:
             return True if solution == 2669959738186064375 else False
+'''
 
 def read_test_input_3(input: str):
     lines = input.splitlines()
@@ -628,7 +628,7 @@ def read_test_input_1(input: str):
     actual_num_houses = 0
     try:
         grid = [lines[i + 1].rstrip("\n") for i in range(num_rows)]
-        grid = [lines[i + 1].rstrip("\n") for i in range(num_rows)]
+
     except:
         raise Exception("Invalid input: Not enough lines in input")
 
@@ -655,7 +655,7 @@ def read_test_input_1(input: str):
     return num_rows, num_columns, num_houses, grid
 
 
-def read_contestant_output_1(output: str):
+
 def read_contestant_output_1(output: str):
     lines = output.splitlines()
 
@@ -701,7 +701,7 @@ def read_contestant_output_1(output: str):
     return route_length, starting_row, starting_column, directions
 
 
-def read_output_1(output: str):
+
 def read_output_1(output: str):
     lines = output.splitlines()
 
@@ -718,41 +718,34 @@ def read_output_1(output: str):
     return optimal_length
 
 
-def grade_1(input: str, contestant_output: str, output: str):
+
 def grade_1(input: str, contestant_output: str, output: str):
     try:
         num_rows, num_columns, _, grid = read_test_input_1(input)
-        num_rows, num_columns, _, grid = read_test_input_1(input)
     except Exception as e:
         print(e, file=sys.stderr)
-        print(e, file=sys.stderr)
+
         return 2
 
     try:
         optimal_length = read_output_1(output)
-        optimal_length = read_output_1(output)
     except Exception as e:
-        print(e, file=sys.stderr)
         print(e, file=sys.stderr)
         return 2
 
     try:
         route_length, starting_row, starting_column, directions = (
             read_contestant_output_1(contestant_output)
-            read_contestant_output_1(contestant_output)
         )
     except Exception as e:
-        print(e, file=sys.stderr)
         print(e, file=sys.stderr)
         return 3
 
     if route_length != optimal_length:
         print("Contestant found incorrect route length", file=sys.stderr)
-        print("Contestant found incorrect route length", file=sys.stderr)
         return 4
 
     if len(directions) != route_length:
-        print("Contestant's direction sequence has invalid length", file=sys.stderr)
         print("Contestant's direction sequence has invalid length", file=sys.stderr)
         return 4
 
@@ -762,7 +755,6 @@ def grade_1(input: str, contestant_output: str, output: str):
         or starting_column < 0
         or starting_column >= num_columns
     ):
-        print("Contestant's starting position is outside of the grid", file=sys.stderr)
         print("Contestant's starting position is outside of the grid", file=sys.stderr)
         return 4
 
@@ -797,11 +789,9 @@ def grade_1(input: str, contestant_output: str, output: str):
             or current_column >= num_columns
         ):
             print("Contestant trying to go outside of grid", file=sys.stderr)
-            print("Contestant trying to go outside of grid", file=sys.stderr)
             return 4
 
         if grid[current_row][current_column] == "*":
-            print("Contestant trying to get into a blocked square", file=sys.stderr)
             print("Contestant trying to get into a blocked square", file=sys.stderr)
             return 4
 
@@ -811,7 +801,6 @@ def grade_1(input: str, contestant_output: str, output: str):
     for el in is_visited:
         if el == False:
             print("Contestant's route doesn't visit all the houses", file=sys.stderr)
-            print("Contestant's route doesn't visit all the houses", file=sys.stderr)
             return 4
 
     return 0
@@ -819,56 +808,60 @@ def grade_1(input: str, contestant_output: str, output: str):
 
 def tower_of_hanoi(n, inmoves):
     from ast import literal_eval
+    try:
+        moves = literal_eval(inmoves)
+        a = []
+        b = []
+        c = []
+        for i in range(n):
+            a.append(i + 1)
+        for move in moves:
+            match move[0]:
+                case "A":
+                    if len(a) == 0:
+                        return False
+                    else:
+                        currentDisk = a[-1]
+                        a.pop()
+                case "B":
+                    if len(b) == 0:
+                        return False
+                    else:
+                        currentDisk = b[-1]
+                        b.pop()
+                case "C":
+                    if len(c) == 0:
+                        return False
+                    else:
+                        currentDisk = c[-1]
+                        c.pop()
+                case _:
+                    return False
 
-    moves = literal_eval(inmoves)
-    a = []
-    b = []
-    c = []
-    for i in range(n):
-        a.append(i + 1)
-    for move in moves:
-        match move[0]:
-            case "A":
-                if len(a) == 0:
+            match move[1]:
+                case "A":
+                    if (len(a) != 0) and (a[-1] > currentDisk):
+                        return False
+                    else:
+                        a.append(currentDisk)
+                case "B":
+                    if (len(b) != 0) and b[-1] > currentDisk:
+                        return False
+                    else:
+                        b.append(currentDisk)
+                case "C":
+                    if (len(c) != 0) and c[-1] > currentDisk:
+                        return False
+                    else:
+                        c.append(currentDisk)
+                        if len(c) == n:
+                            return True
+                case _:
                     return False
-                else:
-                    currentDisk = a[-1]
-                    a.pop()
-            case "B":
-                if len(b) == 0:
-                    return False
-                else:
-                    currentDisk = b[-1]
-                    b.pop()
-            case "C":
-                if len(c) == 0:
-                    return False
-                else:
-                    currentDisk = c[-1]
-                    c.pop()
-            case _:
-                return False
+    except:
+        return False
 
-        match move[1]:
-            case "A":
-                if (len(a) != 0) and (a[-1] > currentDisk):
-                    return False
-                else:
-                    a.append(currentDisk)
-            case "B":
-                if (len(b) != 0) and b[-1] > currentDisk:
-                    return False
-                else:
-                    b.append(currentDisk)
-            case "C":
-                if (len(c) != 0) and c[-1] > currentDisk:
-                    return False
-                else:
-                    c.append(currentDisk)
-                    if len(c) == n:
-                        return True
-            case _:
-                return False
-with open(path.join(path.dirname(__file__), f"in"), "r") as f, open(path.join(path.dirname(__file__), f"out"), "r") as f1:
+'''with open(path.join(path.dirname(__file__), f"in"), "r") as f, open(path.join(path.dirname(__file__), f"out"), "r") as f1:
     input = f.read()
     output = f1.read()
+'''
