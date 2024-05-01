@@ -4,22 +4,72 @@
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'puzzles/style.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<link rel="stylesheet" href='..\static\puzzles\style.css?version=2'>
     <div id="app">
         <div>
             <h1>
                 Puzzle {{ puzzle_id }}
             </h1>
         </div>
-        <div id="puzzle-content">
-            {% include puzzle_path %}
-        </div>
+        {% if puzzle_id == 1 %}
+            <div id="puzzle-content-1-2">
+                {% include puzzle_path %}
+            </div>       
+        {% endif %}
+        {% if puzzle_id == 2 %}
+            <div id="puzzle-content-1-2">
+                {% include puzzle_path %}
+            </div>       
+        {% endif %}
+        {% if puzzle_id == 3 %}
+            <div id="puzzle-content-3">
+                {% include puzzle_path %}
+            </div>       
+        {% endif %}
+        {% if puzzle_id == 4 %}
+            <div id="puzzle-content-4">
+                {% include puzzle_path %}
+            </div>       
+        {% endif %}
+        {% if puzzle_id == 5 %}
+            <div id="puzzle-content-5">
+                {% include puzzle_path %}
+            </div>       
+        {% endif %}
+        {% if puzzle_id == 6 %}
+            <div id="puzzle-content-6">
+                {% include puzzle_path %}
+            </div>       
+        {% endif %}
+        {% if puzzle_id == 7 %}
+            <div id="puzzle-content-7">
+                {% include puzzle_path %}
+            </div>       
+        {% endif %}
+        {% if puzzle_id == 8 %}
+            <div id="puzzle-content-8">
+                {% include puzzle_path %}
+            </div>       
+        {% endif %}
+        {% if puzzle_id == 9 %}
+            <div id="puzzle-content-9">
+                {% include puzzle_path %}
+            </div>       
+        {% endif %}
         <div id="answer-box">
             <form action="{% url 'puzzles:answer' puzzle_id %}" method="post">
                 {% csrf_token %}
                 <!-- <input type="text" name="answer"/> -->
-                <textarea name="answer"></textarea>
-                <input type="submit" value="Submit">
+                <textarea name="answer" rows="5" cols="102"></textarea>
+                <input type="submit" value="Submit" id="submit-button">
+            </form>
+        </div>
+        <div id="code-input">
+            <form action="{% url 'puzzles:answer' puzzle_id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="code">Optionally upload the code you used to generate your solution:</label>
+                <input type="file" name="code" id="submit-button"> <br>
             </form>
         </div>
     </div>

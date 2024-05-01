@@ -1,81 +1,310 @@
+import sys
+
+
 def checkAnswer(puzzle_id, solution):
     match puzzle_id:
-        case 0:
-            return tower_of_hanoi(5, solution)
-        case 5:
-            print(input)
-            print(output)
-            print(grade(input, solution, output))
-            return True if grade(input, solution, output) == 0 else False
+        case 1:
+            return tower_of_hanoi(9, solution)
+        case 2:
+            return tower_of_hanoi2(6, solution)
         case 16:
             return True
-        case 17:
-            return True
-        case 18:
-            return True
-        case 19:
-            return True
-        case 20:
-            return True
-        case _:
-            return puzzle_id
+        case 7:
+            with (
+                open("./puzzles/static/puzzleData/7_input.txt", "r") as f,
+                open("./puzzles/static/puzzleData/7_output.txt", "r") as f1,
+            ):
+                input = f.read()
+                output = f1.read()
+
+            result = grade_1(input, solution, output)
+            assert result != 2
+
+            return True if result == 0 else False
+        case 4:
+            with open("./puzzles/static/puzzleData/4_output.txt", "r") as f:
+                output = f.read()
+
+            result = grade_2(output, solution)
+            assert result != 2
+
+            return True if result == 0 else False
+        case 5:
+            return True if solution == 34095 else False
+        case 6:
+            return True if solution == 10593 else False
+        case 9:
+            with (
+                open("./puzzles/static/puzzleData/9_input.txt", "r") as f,
+                open("./puzzles/static/puzzleData/9_output.txt", "r") as f1,
+            ):
+                input = f.read()
+                output = f1.read()
+                result = grade_3(input, solution, output)
+
+                assert result != 2
+
+                return True if result == 0 else False
+        case 3:
+            return True if solution == 849013480 else False
+        case 8:
+            return True if solution == 2669959738186064375 else False
+
+def read_test_input_3(input: str):
+    lines = input.splitlines()
+    if len(lines) < 1:
+        raise Exception("Invalid input: Expected first line, got none")
+
+    line = lines[0].rstrip("\n")
+    try:
+        numbers = list(map(int, line.split()))
+    except:
+        raise Exception("Invalid input: First line contains non-integers")
+
+    if len(numbers) != 2:
+        raise Exception(
+            "Invalid input: First line contains invalid number of arguments"
+        )
+
+    num_items, num_combinations = numbers
+
+    if num_items < 1:
+        raise Exception("Invalid input: Number of items is invalid")
+
+    if num_combinations < 1:
+        raise Exception("Invalid input: Number of combinations is invalid")
+
+    if len(lines) < 2:
+        raise Exception("Invalid input: Expected second line, got none")
+
+    line = lines[1].rstrip("\n")
+    try:
+        costs = list(map(int, line.split()))
+    except:
+        raise Exception("Invalid input: Second line contains non-integers")
+
+    if len(costs) != num_items:
+        raise Exception(
+            "Invalid input: Second line contains invalid number of arguments"
+        )
+
+    if len(lines) < 2 + num_combinations:
+        raise Exception("Invalid input: Not enough lines")
+
+    combinations = []
+    for i in range(num_combinations):
+        line = lines[2 + i].rstrip("\n")
+        try:
+            numbers = list(map(int, line.split()))
+        except:
+            raise Exception(f"Invalid input: Line {3 + i} contains non-integers")
+
+        if len(numbers) < 2:
+            raise Exception(f"Invalid input: Line {3 + i} contains less than 2 numbers")
+
+        cost = numbers[0]
+        num_items_in_combination = numbers[1]
+        if num_items_in_combination != len(numbers) - 2:
+            raise Exception(f"Invalid input: Line {3 + i} is invalid")
+
+        combinations.append((cost, numbers[2:]))
+
+    return num_items, num_combinations, costs, combinations
 
 
-def tower_of_hanoi(n, inmoves):
-    from ast import literal_eval
-    moves = literal_eval(inmoves)
-    a = []
-    b = []
-    c = []
-    for i in range(n):
-        a.append(i+1)
-    for move in moves:
-        match move[0]:
-            case 'A':
-                if(len(a) == 0):
-                    return False
-                else:
-                    currentDisk = a[-1]
-                    a.pop()
-            case 'B':
-                if(len(b) == 0):
-                    return False
-                else:
-                    currentDisk = b[-1]
-                    b.pop()
-            case 'C':
-                if(len(c) == 0):
-                    return False
-                else:
-                    currentDisk = c[-1]
-                    c.pop()
-            case _:
-                return False
-                
-        match move[1]:
-            case 'A':
-                if((len(a) != 0) and (a[-1] > currentDisk)):
-                    return False
-                else:
-                    a.append(currentDisk)
-            case 'B':
-                if((len(b) != 0) and b[-1] > currentDisk):
-                    return False
-                else:
-                    b.append(currentDisk)
-            case 'C':
-                if((len(c) != 0) and c[-1] > currentDisk):
-                    return False
-                else:
-                    c.append(currentDisk)
-                    if(len(c) == n):
-                        return True
-            case _:
-                return False
+def read_contestant_output_3(output: str):
+    lines = output.splitlines()
+    if len(lines) < 1:
+        raise Exception("Invalid contestant output: Expected first line, got none")
 
-    
+    line = lines[0].rstrip("\n")
+    try:
+        numbers = list(map(int, line.split()))
+    except:
+        raise Exception("Invalid contestant output: First line contains non-integers")
 
-def read_test_input(input: str):
+    if len(numbers) != 2:
+        raise Exception(
+            "Invalid contestant output: Second line has invalid number of arguments"
+        )
+
+    total_cost, num_items = numbers
+    if num_items < 0:
+        raise Exception(
+            "Invalid contestant output: Number of items should be non-negative"
+        )
+
+    if len(lines) < 2:
+        raise Exception("Invalid contestant output: Expected second line, got none")
+
+    line = lines[1].rstrip("\n")
+    try:
+        items = list(map(int, line.split()))
+    except:
+        raise Exception("Invalid contestant output: Second line contains non-integers")
+
+    if len(items) != num_items:
+        raise Exception(
+            "Invalid contestant output: Second line contains invalid number of arguments"
+        )
+
+    return total_cost, num_items, items
+
+
+def read_output_3(output: str):
+    lines = output.splitlines()
+    if len(lines) < 1:
+        raise Exception("Invalid output: Expected first line, got none")
+
+    line = lines[0].rstrip("\n")
+    try:
+        numbers = list(map(int, line.split()))
+    except:
+        raise Exception("Invalid output: First line contains non-integers")
+
+    if len(numbers) != 2:
+        raise Exception("Invalid output: First line contains wrong number of arguments")
+
+    total_cost, _ = numbers
+    return total_cost
+
+
+def grade_3(input: str, contestant_output: str, output: str):
+    try:
+        num_items, num_combinations, costs, combinations = read_test_input_3(input)
+
+    except Exception as e:
+        print(e, file=sys.stderr)
+        return 2
+
+    assert len(costs) == num_items and len(combinations) == num_combinations
+
+    try:
+        optimal_cost = read_output_3(output)
+    except Exception as e:
+        print(e, file=sys.stderr)
+        return 2
+
+    try:
+        total_cost, num_items_taken, items = read_contestant_output_3(contestant_output)
+    except Exception as e:
+        print(e, file=sys.stderr)
+        return 3
+
+    assert len(items) == num_items_taken
+
+    if optimal_cost != total_cost:
+        print("Wrong answer: Jury found better answer", file=sys.stderr)
+        return 4
+
+    for item in items:
+        if item < 1 or item > num_items:
+            print("Wrong answer: Invalid item id", file=sys.stderr)
+            return 4
+
+    sorted_items = items.copy()
+    if sorted_items != items:
+        print("Wrong answer: List of items is not sorted", file=sys.stderr)
+        return 4
+
+    prev_el = None
+    for el in items:
+        if el == prev_el:
+            print("Wrong answer: Duplicate items in list", file=sys.stderr)
+            return 4
+
+        prev_el = el
+
+    is_item_taken = [False for _ in range(num_items)]
+    for el in items:
+        is_item_taken[el - 1] = True
+
+    real_cost = 0
+    for cost, items_in_combination in combinations:
+        is_taken = True
+        for el in items_in_combination:
+            if not is_item_taken[el - 1]:
+                is_taken = False
+                break
+
+        if is_taken:
+            real_cost += cost
+
+    for item in items:
+        real_cost -= costs[item - 1]
+
+    if real_cost != total_cost:
+        print(f"Real cost is {real_cost}")
+        print(f"Total cost is {total_cost}")
+        print(
+            "Wrong answer: Constestant's total cost doesn't match reality",
+            file=sys.stderr,
+        )
+        return 4
+
+    print("Correct answer", file=sys.stderr)
+    return 0
+
+
+def read_contestant_output_2(output: str):
+    lines = output.splitlines()
+
+    if len(lines) < 1:
+        raise Exception("Invalid contestant output: Expected first line, got none")
+
+    line = lines[0].rstrip("\n")
+
+    for ch in line:
+        if ch != "(" and ch != ")":
+            raise Exception(
+                "Invalid contestant output: Unrecognized symbol in sequence"
+            )
+
+    return line
+
+
+def read_output_2(output: str):
+    lines = output.splitlines()
+
+    if len(lines) < 1:
+        raise Exception("Invalid output: Expected first line, got none")
+
+    line = lines[0].rstrip("\n")
+
+    for ch in line:
+        if ch != "(" and ch != ")":
+            raise Exception("Invalid output: Unrecognized symbol in sequence")
+
+    return line
+
+
+def grade_2(solution: str, contestant_solution: str):
+    try:
+        solution = read_output_2(solution)
+    except Exception as e:
+        print("Invalid output", file=sys.stderr)
+        print(e, file=sys.stderr)
+        return 2
+
+    try:
+        contestant_solution = read_contestant_output_2(contestant_solution)
+    except Exception as e:
+        print("Invalid contestant output", file=sys.stderr)
+        print(e, file=sys.stderr)
+
+    if len(contestant_solution) != len(solution):
+        print("Wrong answer: Invalid sequence length", file=sys.stderr)
+        return 4
+
+    if contestant_solution != solution:
+        print("Wrong answer", file=sys.stderr)
+        return 4
+
+    print("Correct answer", file=sys.stderr)
+    return 0
+
+
+def read_test_input_1(input: str):
     lines = input.splitlines()
     if len(lines) < 1:
         raise Exception("Invalid input: Expected first line, got none")
@@ -98,7 +327,7 @@ def read_test_input(input: str):
 
     actual_num_houses = 0
     try:
-        grid = [lines[i + 1].rstrip("/n") for i in range(num_rows)]
+        grid = [lines[i + 1].rstrip("\n") for i in range(num_rows)]
     except:
         raise Exception("Invalid input: Not enough lines in input")
 
@@ -125,13 +354,13 @@ def read_test_input(input: str):
     return num_rows, num_columns, num_houses, grid
 
 
-def read_contestant_output(output: str):
+def read_contestant_output_1(output: str):
     lines = output.splitlines()
 
     if len(lines) < 1:
         raise Exception("Invalid contestant output: Expected first line, got none")
 
-    line = lines[0].rstrip("/n")
+    line = lines[0].rstrip("\n")
     try:
         route_length = int(line)
     except:
@@ -142,7 +371,7 @@ def read_contestant_output(output: str):
     if len(lines) < 2:
         raise Exception("Invalid contestant output: Expected second line, got none")
 
-    line = lines[1].rstrip("/n")
+    line = lines[1].rstrip("\n")
     try:
         numbers = list(map(int, line.split()))
     except:
@@ -157,7 +386,7 @@ def read_contestant_output(output: str):
     if len(lines) < 3:
         raise Exception("Invalid contestant output: Expected a third line, got none")
 
-    directions = lines[2].rstrip("/n")
+    directions = lines[2].rstrip("\n")
     for dir in directions:
         if dir != "L" and dir != "R" and dir != "U" and dir != "D":
             raise Exception(
@@ -167,13 +396,13 @@ def read_contestant_output(output: str):
     return route_length, starting_row, starting_column, directions
 
 
-def read_output(output: str):
+def read_output_1(output: str):
     lines = output.splitlines()
 
     if len(output) < 1:
         raise Exception("Invalid output: Expected first line, got none")
 
-    line = lines[0].rstrip("/n")
+    line = lines[0].rstrip("\n")
     try:
         optimal_length = int(line)
     except:
@@ -182,28 +411,33 @@ def read_output(output: str):
     return optimal_length
 
 
-def grade(input: str, contestant_output: str, output: str):
+def grade_1(input: str, contestant_output: str, output: str):
     try:
-        num_rows, num_columns, num_houses, grid = read_test_input(input)
+        num_rows, num_columns, _, grid = read_test_input_1(input)
     except Exception as e:
+        print(e, file=sys.stderr)
         return 2
 
     try:
-        optimal_length = read_output(contestant_output)
+        optimal_length = read_output_1(output)
     except Exception as e:
+        print(e, file=sys.stderr)
         return 2
 
     try:
         route_length, starting_row, starting_column, directions = (
-            read_contestant_output(output)
+            read_contestant_output_1(contestant_output)
         )
     except Exception as e:
+        print(e, file=sys.stderr)
         return 3
 
     if route_length != optimal_length:
+        print("Contestant found incorrect route length", file=sys.stderr)
         return 4
 
     if len(directions) != route_length:
+        print("Contestant's direction sequence has invalid length", file=sys.stderr)
         return 4
 
     if (
@@ -212,6 +446,7 @@ def grade(input: str, contestant_output: str, output: str):
         or starting_column < 0
         or starting_column >= num_columns
     ):
+        print("Contestant's starting position is outside of the grid", file=sys.stderr)
         return 4
 
     houses = [
@@ -244,9 +479,11 @@ def grade(input: str, contestant_output: str, output: str):
             or current_column < 0
             or current_column >= num_columns
         ):
+            print("Contestant trying to go outside of grid", file=sys.stderr)
             return 4
 
         if grid[current_row][current_column] == "*":
+            print("Contestant trying to get into a blocked square", file=sys.stderr)
             return 4
 
         if grid[current_row][current_column] == "H":
@@ -254,10 +491,61 @@ def grade(input: str, contestant_output: str, output: str):
 
     for el in is_visited:
         if el == False:
+            print("Contestant's route doesn't visit all the houses", file=sys.stderr)
             return 4
 
     return 0
 
-with open("C:/Users/Raul/Documents/GitHub/Team-10-Project/application/puzzles/in", "r") as f, open("C:/Users/Raul/Documents/GitHub/Team-10-Project/application/puzzles/out", "r") as f1:
-    input = f.read()
-    output = f1.read()
+
+def tower_of_hanoi(n, inmoves):
+    from ast import literal_eval
+
+    moves = literal_eval(inmoves)
+    a = []
+    b = []
+    c = []
+    for i in range(n):
+        a.append(i + 1)
+    for move in moves:
+        match move[0]:
+            case "A":
+                if len(a) == 0:
+                    return False
+                else:
+                    currentDisk = a[-1]
+                    a.pop()
+            case "B":
+                if len(b) == 0:
+                    return False
+                else:
+                    currentDisk = b[-1]
+                    b.pop()
+            case "C":
+                if len(c) == 0:
+                    return False
+                else:
+                    currentDisk = c[-1]
+                    c.pop()
+            case _:
+                return False
+
+        match move[1]:
+            case "A":
+                if (len(a) != 0) and (a[-1] > currentDisk):
+                    return False
+                else:
+                    a.append(currentDisk)
+            case "B":
+                if (len(b) != 0) and b[-1] > currentDisk:
+                    return False
+                else:
+                    b.append(currentDisk)
+            case "C":
+                if (len(c) != 0) and c[-1] > currentDisk:
+                    return False
+                else:
+                    c.append(currentDisk)
+                    if len(c) == n:
+                        return True
+            case _:
+                return False

@@ -10,10 +10,10 @@ from django.contrib.contenttypes.models import ContentType
 from random import randint
     
 class SignupUserCreationForm(UserCreationForm):  
-    username = forms.CharField(label='username', min_length=5, max_length=150)  
-    email = forms.EmailField(label='email')  
-    password1 = forms.CharField(label='password', widget=forms.PasswordInput)  
-    password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)  
+    username = forms.CharField(label='Username', min_length=5, max_length=150)  
+    email = forms.EmailField(label='Email')  
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)  
+    password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)  
     
     def username_clean(self):  
         username = self.cleaned_data['username'].lower()  
@@ -55,11 +55,11 @@ class SignupUserCreationForm(UserCreationForm):
 
 
 class SignupEmployerCreationForm(UserCreationForm):  
-    username = forms.CharField(label='username', min_length=5, max_length=150)  
-    email = forms.EmailField(label='email')  
-    password1 = forms.CharField(label='password', widget=forms.PasswordInput)  
-    password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
-    verifier = forms.CharField(label='Employer code')  
+    username = forms.CharField(label='Username', min_length=5, max_length=150)  
+    email = forms.EmailField(label='Email')  
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)  
+    password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
+    verifier = forms.CharField(label='Employer Code')  
     
     def username_clean(self):  
         username = self.cleaned_data['username'].lower()  

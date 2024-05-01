@@ -23,10 +23,10 @@ def viewpuzzle(request, puzzle_id):
     return render(request, "puzzles/viewpuzzle.html", context)
 # Create your views here.
 
-def download_file_1(request):
+def download_7_input(request):
     # fill these variables with real values
-    fl_path = path.join(path.dirname(__file__), f"static/puzzleData/1_data.txt")
-    filename = "1_data"
+    fl_path = path.join(path.dirname(__file__), f"static/puzzleData/7_input.txt")
+    filename = "Puzzle 7 Input"
 
     fl = open(fl_path, "r")
     #mime_type, _ = mimetypes.guess_type(fl_path)
@@ -34,6 +34,38 @@ def download_file_1(request):
     response['Content-Disposition'] = "attachment; filename=%s" % filename
     return response
 
+def download_9_input(request):
+    # fill these variables with real values
+    fl_path = path.join(path.dirname(__file__), f"static/puzzleData/9_input.txt")
+    filename = "Puzzle 9 Input"
+
+    fl = open(fl_path, "r")
+    #mime_type, _ = mimetypes.guess_type(fl_path)
+    response = HttpResponse(fl)
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    return response
+
+def download_5_input(request):
+    # fill these variables with real values
+    fl_path = path.join(path.dirname(__file__), f"static/puzzleData/5_input.txt")
+    filename = "Puzzle 5 Input"
+
+    fl = open(fl_path, "r")
+    #mime_type, _ = mimetypes.guess_type(fl_path)
+    response = HttpResponse(fl)
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    return response
+
+def download_6_input(request):
+    # fill these variables with real values
+    fl_path = path.join(path.dirname(__file__), f"static/puzzleData/6_input.txt")
+    filename = "Puzzle 6 Input"
+
+    fl = open(fl_path, "r")
+    #mime_type, _ = mimetypes.guess_type(fl_path)
+    response = HttpResponse(fl)
+    response['Content-Disposition'] = "attachment; filename=%s" % filename
+    return response
 
 def answer(request, puzzle_id):
     if request.user.account.solved_puzzles:
@@ -58,10 +90,13 @@ def answer(request, puzzle_id):
         return HttpResponseRedirect(reverse("puzzles:incorrect", args=(puzzle_id,)))
 
 def correct(request, puzzle_id):
-    return HttpResponse("Correct")
+    context = {"puzzle_id": puzzle_id}
+    return render(request, "puzzles/correct.html/", context)
 
 def incorrect(request, puzzle_id):
-    return HttpResponse("Incorrect")
+    context = {"puzzle_id": puzzle_id}
+    return render(request, "puzzles/incorrect.html/", context)
 
 def error(request, puzzle_id):
-    return HttpResponse("already completed puzzle " + str(puzzle_id))
+    context = {"puzzle_id": puzzle_id}
+    return render(request, "puzzles/error.html/", context)

@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>     
+      h1{
+      color: black;
+      font-family: 'Montserrat';
+    }
+
+
+    #puzzleText{
+        color: black;
+      font-family: 'Montserrat';
+      line-height: 50x;
+      text-align: center;
+    }
+
+    button{
+      font-family: 'Montserrat';
+    }
+
+    </style>
+  </head>
+</html>
+
+
+
+<h1> Traverse Grid </h1>
+
+<p id="puzzleText"> 
+    You are given an <b>MxN</b> grid. Each square is either <b>blocked</b> or <b>open</b>. <br> You are also given <b>K</b> houses, positioned on some squares in the grid (it is guaranteed that each square with a house is open).<br>
+    Define a <b>route</b> as a sequence of open squares, where each two consecutive squares share a <b>common side</b>.<br>
+    Your task is to find a route of <b>the shortest length</b> that visits all squares with houses at least once. 
+    <br> You choose the starting, as well as the ending point of the route.
+    <br><br>
+    
+    <b>Constraints:</b>:
+    1 <= <b>M</b> <= 1000 <br>
+    1 <= <b>N</b> <= 1000 <br>
+    1 <= <b>K</b> <= 18 <br>
+    <br>
+    
+    
+    <b>Input:</b>
+    On the first line of the input are the numbers <b>M</b>, <b>N</b>, <b>K</b> (in that order).
+    On each of the next M lines, you are given <b>N</b> symbols, which represent the <b>i</b>-th row of the grid.
+    A ‘.’ means an open square, ‘*’ - closed and ‘H’ means a square with a house. <br><br>
+        
+    
+    <b>Output:</b>
+    On the first line of the output, you should output the length of the route you found.<br>
+    On the second line, you should output the starting row and the starting column you chose.<br>
+    Note that rows and columns start from 0.<br>
+    On the third line, you should output a string of directions L, R, U, D representing where your route goes from the current square. L means moving one column to the left, R - one column to the right, U - one row up, D - one row down. Note that the length of the string should match the number you previously output.
+    
+    
+    <br><br>
+    <b>Examples:</b>
+    
+    
+    
+    <b>Input:</b>				<b>Output:</b>
+    3 3 2						    4
+    H..						    0 0
+    …						    RRDD
+    ..H
+    
+    
+    
+    <b>Input:</b>				<b>Output:</b>
+    4 4 3						6
+    **H.						1 0
+    H…						    RRURDD
+    ***H
+    ....
+    
+    
+    
+</p>
+
+<button > <a href="{% url 'puzzles:download_7_input' %}">Download Input</a></button>

@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>     
+      p{
+      margin-top: -10px;
+      color: white;
+      font-family: 'Montserrat';
+    }
+
+    #congratsText{
+        color: black;
+        text-align: center;
+        font-size: 22px; 
+    }
+
+    h2{
+        color: green;
+        font-family: 'Montserrat';
+        text-align: center;
+        margin-top: 150px;
+        font-size: 40px; 
+
+    }
+    </style>
+  </head>
+</html>
+
+
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="results">
+
+
+<h2> Correct! </h2>
+
+<p id="congratsText">
+    <a href="{% url 'home' %}"> Click here </a> to return to the home page. </br>
+    <a href="{% url 'trophies' %}"> Click here </a> to view your trophies.
+</p>
+
+</div>
+
+{% endblock %}
