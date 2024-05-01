@@ -1,14 +1,62 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>     
+      p{
+      margin-top: -10px;
+      color: white;
+      font-family: 'Montserrat';
+    }
+
+    h2{
+      margin-top: 40px;
+      font-family: 'Montserrat';
+      color: black;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    h5{
+      margin-top: 40px;
+      font-family: 'Montserrat';
+      color: black;
+      text-align: center;
+    }
+
+    #alreadyHave{
+      margin-top: 20px;
+    }
+
+    #submissionForms{
+      font-family: 'Montserrat';
+      text-align: center;
+      margin-top: 50px;
+
+    }
+
+    #signUpButton{
+      font-family: 'Montserrat';
+      margin-top: 20px;
+    }
+
+
+    </style>
+  </head>
+</html>
+
 {% extends "base.html" %}
 
 {% block title %}Register as Employer {% endblock %}
 
 {% block content %}
-<h5>Not an employer? <a href="{% url 'signup' %}">Register Here!</a></h5>
 
 <h2>Register as Employer</h2>
-<form method="post">
+<form method="post" id="submissionForms">
   {% csrf_token %}
   {{ form }}
-  <button type="submit">Sign Up</button>
+  <button type="submit" id="signUpButton">Sign Up</button>
 </form>
+<h5>Not an employer? <a href="{% url 'signup' %}">Register Here!</a></h5>
+
 {% endblock %}
+

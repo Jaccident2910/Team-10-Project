@@ -1,4 +1,34 @@
-<h1>Georgi puzzle 1</h1>
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>     
+      h1{
+      color: black;
+      font-family: 'Montserrat';
+    }
+
+    #puzzleText{
+        color: black;
+      font-family: 'Montserrat';
+      line-height: 50x;
+      text-align: center;
+    }
+    </style>
+  </head>
+</html>
 
 
-<button > <a href="{% url 'puzzles:download_file_1' %}">Download</a></button>
+
+<h1> Towers of Hanoi </h1>
+
+<p id="puzzleText"> 
+In this puzzle, there are three rods - A, B and C and <b>9 disks.</b> </br>
+The puzzle is solved when all 9 disks are moved from rod A to rod C, with only two rules:</br></br>
+
+<b>1. Only the top disk on a rod may be moved at a time.  </br></br></br>
+2. Larger disks may not be placed on top of smaller disks.</br></br></br></b>
+
+Your task is to design an algorithm that solves this puzzle in the minimum number of steps. </br> </br>
+The algorithm must output a list of moves - for example the list [('A', 'B'), ('B', 'C')] </br>
+describes moving the top disk of A to B, and then moving the top disk of B to C.</br></br>
+</p>
