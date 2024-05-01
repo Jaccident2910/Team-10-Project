@@ -6,8 +6,7 @@ def checkAnswer(puzzle_id, solution):
         case 1:
             return tower_of_hanoi(9, solution)
         case 2:
-            # We are missing the function for this problem - this should stop things breaking until then
-            return tower_of_hanoi(6, solution)
+            return tower_of_hanoi2(6, solution)
         case 16:
             return True
         case 7:
@@ -860,6 +859,174 @@ def tower_of_hanoi(n, inmoves):
                     return False
     except:
         return False
+    
+
+
+def tower_of_hanoi2(n, inmoves):
+    from ast import literal_eval
+    moves = literal_eval(inmoves)
+    a = [] 
+    b = []
+    c = []
+    d = []
+    for i in range(n):
+        a.append((i+1, 'R'))
+        c.append((i+1, 'B'))
+    for move in moves:
+        match move[0]:
+            case 'A':
+                if(len(a) == 0):
+                    print("Illegal Move - Rod A is Empty")
+                    return False
+                else:
+                    currentDisk = a[-1]
+                    a.pop()
+            case 'B':
+                if(len(b) == 0):
+                    print("Illegal Move - Rod B is Empty")
+                    return False
+                else:
+                    currentDisk = b[-1]
+                    b.pop()
+            case 'C':
+                if(len(c) == 0):
+                    print("Illegal Move - Rod C is Empty")
+                    return False
+                else:
+                    currentDisk = c[-1]
+                    c.pop()
+            case 'D':
+                if(len(d) == 0):
+                    print("Illegal Move - Rod C is Empty")
+                    return False
+                else:
+                    currentDisk = d[-1]
+                    d.pop()         
+            case _:
+                print("Illegal Input")
+                return False
+
+        match move[1]:
+
+            case 'A':
+
+                if((len(a) != 0) and (a[-1][0] > currentDisk[0])):
+
+                    print("Illegal Move - you are placing a larger disk over a smaller disk on Rod A.")
+
+                    return False
+
+                else:
+
+                    a.append(currentDisk)
+
+                    if(len(a) and len(c) == n):
+
+                        if(checkRedBlue(a,c,n)):
+
+                            print('Move disk {} from rod {} to rod {}.'.format(currentDisk, move[0], move[1]))       
+
+                            if(len(moves) == exponent(2,n+1) - 1):
+
+                                print("Solved in Minimum Steps!")
+
+                                return True
+
+                            else:
+
+                                print("Solved, but not in Minimum Steps.")
+
+                                return False  
+
+            case 'B':
+
+                if((len(b) != 0) and b[-1][0] > currentDisk[0]):
+
+                    print("Illegal Move - you are placing a larger disk over a smaller disk on Rod B. ")
+
+                    return False
+
+                else:
+
+                    b.append(currentDisk)
+
+            case 'C':
+
+                if((len(c) != 0) and c[-1][0] > currentDisk[0]):
+
+                    print("Illegal Move - you are placing a larger disk over a smaller disk on Rod C")
+
+                    return False
+
+                else:
+
+                    c.append(currentDisk)
+
+                    if(len(a) and len(c) == n):
+
+                        if(checkRedBlue(a,c,n)):
+
+                            print('Move disk {} from rod {} to rod {}.'.format(currentDisk, move[0], move[1]))       
+
+                            if(len(moves) == exponent(2,n+1) - 1):
+
+                                print("Solved in Minimum Steps!")
+
+                                return True
+
+                            else:
+
+                                print("Solved, but not in Minimum Steps.")
+
+                                return False
+
+            case 'D':
+
+                if((len(d) != 0) and d[-1][0] > currentDisk[0]):
+
+                    print("Illegal Move - you are placing a larger disk over a smaller disk on Rod D. ")
+
+                    return False
+
+                else:
+
+                    d.append(currentDisk)
+
+            case _:
+
+                print("Illegal Input")
+
+                return False
+
+               
+
+        print('Move disk {} from rod {} to rod {}.'.format(currentDisk, move[0], move[1]))
+
+       
+
+    return False
+
+ 
+
+def exponent(c,n):
+
+    if(n == 0):
+
+        return 1
+
+    return (c * exponent(c,n-1))
+
+ 
+
+def checkRedBlue(a,c,n):
+
+    for i in range(n):
+
+        if((a[i])[1] != 'B' or (c[i])[1] != 'R'):
+
+           return False
+
+    return True
 
 '''with open(path.join(path.dirname(__file__), f"in"), "r") as f, open(path.join(path.dirname(__file__), f"out"), "r") as f1:
     input = f.read()
