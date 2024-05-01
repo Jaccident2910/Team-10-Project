@@ -1,7 +1,57 @@
-<h1>Georgi puzzle 1</h1>
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>     
+      h1{
+      color: black;
+      font-family: 'Montserrat';
+    }
+
+    h2{
+        font-family: 'Montserrat';
+        text-align: center;
+    }
+
+    h3{
+        font-family: 'Montserrat';
+        text-align: center;
+    }
+    #puzzleText{
+        color: black;
+      font-family: 'Montserrat';
+      line-height: 50x;
+      text-align: center;
+    }
+
+    button{
+      font-family: 'Montserrat';
+    }
+    </style>
+  </head>
+</html>
 
 
-<form method="get">
-    {% csrf_token %}
-    <button type="submit">Download text</button>
-</form>
+
+<h1> Splitting a Wooden Plank </h1>
+
+<p id="puzzleText"> <br>
+    <p id ="puzzleText">There is a wooden plank of length n (n &lt;= 50000 is guaranteed to be a multiple of 2) and we want to split <br> the wooden plank between two people, Alice and Bob, such that each of them receives the same amount of wood. <br> We can chop the wooden plank at any of n-1 evenly spaced intervals, but due to the different hardness of the wood at different points, each location will have a different cost. Find the minimum cost required to split the wooden plank equally between Alice and Bob.</p>
+    <h3>Input:</h3>
+    <p id ="puzzleText">The first line of input has one integer, n</p>
+    <p id ="puzzleText">The next line has n-1 integers, each , where the i-th integer represents the cost of splitting the wood at the i-th point</p>
+    <p id ="puzzleText">It is guaranteed that the answer does not exceed 2147483647.</p>
+    <h2>Example:</h2>
+    <h3>Input:</h3>
+    <p id ="puzzleText">6</p>
+    <p id ="puzzleText">5 2 10 1 3</p>
+    <h3>Output:</h3>
+    <p id ="puzzleText">5</p>
+    <h3>Explanation:</h3>
+    <p id ="puzzleText">We can split the wood at the positions costing 2 and 3</p>
+    <p id ="puzzleText">- - | - - - | -</p>
+    <p id ="puzzleText">Then give the first segment of length 2 and the third segment of length 1 to Alice and give the second segment of length 3 to Bob</p>
+    
+<br>
+</p>
+
+<button > <a href="{% url 'puzzles:download_5_input' %}">Download Input</a></button>
