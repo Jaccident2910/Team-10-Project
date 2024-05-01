@@ -17,9 +17,6 @@
 .account-button {
     display: block;
     min-width: 7rem;
-    background-color: red;
-    color: white;
-    font-family: 'Montserrat';
     cursor: pointer;
     float: right;
     margin-top: -10px;
@@ -52,6 +49,10 @@
     grid-template-columns: 20% 20% 20% 20%;
     column-gap: 5%;
     row-gap: 40px;
+}
+
+table, th, td {
+    border: 1px solid;
 }
 
 header {

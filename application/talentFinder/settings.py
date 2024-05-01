@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "accounts",
+    "puzzles",
+    "backend",
 ]
 
 MIDDLEWARE = [
@@ -131,3 +133,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "accountHome"  # says where to redirect after login TODO
 LOGOUT_REDIRECT_URL = "accountHome"  # says where to redirect after logout TODO
+
+MEDIA_ROOT = "database"

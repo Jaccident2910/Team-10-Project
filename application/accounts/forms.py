@@ -43,7 +43,7 @@ class SignupUserCreationForm(UserCreationForm):
             self.cleaned_data['email'],  
             self.cleaned_data['password1']  
         )
-        theSeed = randint()
+        theSeed = randint(0,256)
         account = Account(user=user, puzzles_finished=0, account_random=theSeed)
         if commit:
             user.save()
