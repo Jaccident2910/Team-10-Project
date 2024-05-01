@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>     
+      h1{
+      color: black;
+      font-family: 'Montserrat';
+    }
+
+    p{
+      text-align: center;
+    }
+    #puzzleText{
+        color: black;
+      font-family: 'Montserrat';
+      line-height: 50x;
+      text-align: center;
+    }
+    </style>
+  </head>
+</html>
+
+
+
+<h1> K-th Correct Bracket Sequence </h1>
+
+<p id="puzzleText"> 
+  <p><span style="color: rgb(0, 0, 0);font-size: 11pt;">Recall that a&nbsp;</span><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">correct bracket sequence</span></strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp;is one where you can put numbers and signs in between, to get a valid arithmetic expression. <br> For example (()) and ()(()) are valid and (()))() is not. Assume that &lsquo;(&lsquo; is lexicographically smaller than &lsquo;)&rsquo; and compare <br> correct correbracket sequences as regular strings. Your task is by a given&nbsp;</span><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">N</span></strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp;and&nbsp;</span><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">K</span></strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">, to find the&nbsp;</span><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">K-th lexicographically smallest</span></strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp;<br> correct bracket sequence that contains N opening brackets and N closing ones.</span></p>
+  <p><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">Constraints:</span></strong></p>
+  <p><span style="color: rgb(0, 0, 0);font-size: 11pt;">1 &lt;=&nbsp;</span><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">N</span></strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp;&lt;= 5000</span></p>
+  <p><span style="color: rgb(0, 0, 0);font-size: 11pt;">1 &lt;=&nbsp;</span><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">K&nbsp;</span></strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&lt;=&nbsp;</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">1</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">0</span><span style="color: rgb(0, 0, 0);font-size: 11pt;"><sup>18</sup></span></p>
+  <p><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">Input:</span></strong></p>
+  <p><span style="color: rgb(0, 0, 0);font-size: 11pt;">On the first line of the input are the numbers&nbsp;</span><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">N&nbsp;</span></strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">and&nbsp;</span><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">K&nbsp;</span></strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">(in that order)</span></p>
+  <p><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">Output:</span></strong></p>
+  <p><span style="color: rgb(0, 0, 0);font-size: 11pt;">On the first line of the output you should output the</span><br><span style="color: rgb(0, 0, 0);font-size: 11pt;">K-th</span><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp;</span></strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">correct bracket sequence of length 2N</span></p>
+  <p><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">Examples:</span></strong></p>
+  <p><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">Input:</span></strong><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span></strong><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span></strong><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span></strong><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span></strong><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp;</span></strong><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">Output:</span></strong></p>
+  <p><span style="color: rgb(0, 0, 0);font-size: 11pt;">3 3</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">(())()</span></p>
+  <p><br></p>
+  <p><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">Input:</span></strong><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;"><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span></strong><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span></strong><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span></strong><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span></strong><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp;</span></strong></span></strong><strong><span style="color: rgb(0, 0, 0);font-size: 11pt;">Output:</span></strong></p>
+  <p><span style="color: rgb(0, 0, 0);font-size: 11pt;">10 723</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp; &nbsp;&nbsp;</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">&nbsp;</span><span style="color: rgb(0, 0, 0);font-size: 11pt;">((((()(())(())))))()</span></p>
+  <p><br></p>
+
+</p>
