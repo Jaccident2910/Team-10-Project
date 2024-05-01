@@ -1,3 +1,31 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>     
+      p{
+      margin-top: -10px;
+      color: white;
+      font-family: 'Montserrat';
+    }
+
+    #congratsText{
+        color: black;
+        text-align: center;
+        font-size: 22px; 
+    }
+
+    h2{
+        color: red;
+        font-family: 'Montserrat';
+        text-align: center;
+        margin-top: 150px;
+        font-size: 40px; 
+
+    }
+    </style>
+  </head>
+</html>
+
 {% extends "base.html" %}
 
 
@@ -5,11 +33,10 @@
 
 <div class="results">
 
-<h2> Incorrect </h2>
+<h2> Incorrect! </h2>
 
-<p>
-    Your answer was incorrect! </br>
-    <a href="{% url 'viewpuzzle' puzzle_id %}">Click here</a> to go back to the puzzle!
+<p id="congratsText">
+    <a href="{% url 'puzzles:viewpuzzle' puzzle_id %}">Click here</a> to go back to the puzzle!
 </p>
 
 </div>

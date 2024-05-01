@@ -8,10 +8,48 @@
     }
 
     #hiUsername{
+      margin-top: 40px;
       color: black;
       text-align: center;
+      font-size: 22px;
     }
 
+    #trophiesButton{
+      font-family: 'Montserrat';
+      font-size: 22px;
+      height: 34px;
+      display: block;
+      margin: auto;
+      margin-top: 100px;
+      background-color: #ccfcde;
+    }
+
+    #passChangeButton{
+      font-family: 'Montserrat';
+      font-size: 22px;
+      display: block;
+      margin: auto;
+      margin-top: 40px;
+      background-color: #fcf2cc;
+    }
+
+    #logOutButton{
+      font-family: 'Montserrat';
+      font-size: 22px;
+      display: block;
+      margin: auto;
+      margin-top: 30px;
+      background-color: #fcd8cc;
+    }
+
+    #passResetButton{
+      font-family: 'Montserrat';
+      font-size: 22px;
+      display: block;
+      margin: auto;
+      margin-top: 40px;
+      background-color: #fcd8cc;
+    }
     
     </style>
   </head>
@@ -24,16 +62,16 @@
 {% block content %}
 {% if user.is_authenticated %}
 <p id="hiUsername">Hi {{ user.username }}!</p>
-<p><a href="{% url 'trophies' %}">View your trophies</a></p>
-<p><a href="{% url 'password_change' %}">Password Change</a></p>
+<p><a href="{% url 'trophies' %}" ><button id="trophiesButton">View Your Trophies</button></a></p>
+<p><a href="{% url 'password_change' %}" ><button id="passChangeButton">Password Change</button></a></p>
 <form action="{% url 'logout' %}" method="post">
   {% csrf_token %}
-  <button type="submit">Log Out</button>
+  <button id="logOutButton">Log Out</button>
 </form>
 {% else %}
-<p>You are not logged in</p>
-<p><a href="{% url 'password_reset' %}">Password Reset</a></p>
-<p><a href="{% url 'login' %}"><button>Log In</button></a></p>
-<p><a href="{% url 'signup' %}"><button>Sign Up</button></a></p>
+<p id = "hiUsername">You are not logged in!</p>
+<p><a href="{% url 'login' %}" ><button id="trophiesButton">Login</button></a></p>
+<p><a href="{% url 'signup' %}" ><button id="passChangeButton">Sign Up</button></a></p>
+<p><a href="{% url 'password_reset' %}" ><button id="passResetButton">Password Reset</button></a></p>
 {% endif %}
 {% endblock %}

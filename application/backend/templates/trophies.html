@@ -1,13 +1,37 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>     
+      p{
+      margin-top: -10px;
+      color: white;
+      font-family: 'Montserrat';
+    }
+
+    h1{
+        font-family: 'Montserrat';
+    }
+    
+    #trophy{
+      display: block;
+      margin: auto;
+    }
+    </style>
+  </head>
+</html>
+
+
+
 {% extends "base.html" %}
 {% block title %}Trophies{% endblock %}
 
 {% block content %}
 {% load static %}
-<h1>These are your trophies</h1> </br>
+<h1>These are your trophies!</h1> </br>
 <div id="trophyCabinet">
     {% for trophy in trophies %}
     <div class="trophy">
-        <img src="{% static trophy %}" class="icon">
+        <img src="{% static trophy %}" class="icon" id ="trophy">
     </div>
     {% endfor %}
 </table>
