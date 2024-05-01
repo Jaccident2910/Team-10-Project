@@ -124,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [BASE_DIR / "puzzles/static", BASE_DIR / "accounts/static"]
+STATICFILES_DIRS = [BASE_DIR / "puzzles/static", BASE_DIR / "accounts/static", BASE_DIR / "database/uploads"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -134,4 +134,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "accountHome"  # says where to redirect after login TODO
 LOGOUT_REDIRECT_URL = "accountHome"  # says where to redirect after logout TODO
 
-MEDIA_ROOT = "database"
+MEDIA_ROOT = BASE_DIR / "database"
+MEDIA_URL = "/database/"
