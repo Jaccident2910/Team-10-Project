@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>     
+      h1{
+      color: black;
+      font-family: 'Montserrat';
+    }
+
+    h2{
+        font-family: 'Montserrat';
+        text-align: center;
+    }
+
+    h3{
+        font-family: 'Montserrat';
+        text-align: center;
+    }
+    #puzzleText{
+        color: black;
+      font-family: 'Montserrat';
+      line-height: 50x;
+      text-align: center;
+    }
+
+    button{
+      font-family: 'Montserrat';
+    }
+    </style>
+  </head>
+</html>
+
+
+
+<h1> Dynamic Programming Weights </h1>
+
+<p id="puzzleText"> <br>
+  <p id ="puzzleText">You are given a graph with n (n &lt;= 45) and m (m &lt;= 80) edges, and a positive integer k (k &lt;= 5 ). For any path in the graph, define the value of the path as the k-th largest weight out of the edges in the path (if the path has &lt;k edges, the value is 0). Find the minimum value of a path from node 0 to node n-1.</p>
+  <h3>Input:</h3>
+  <p id ="puzzleText">The first line contains two integers, n and k.</p>
+  <p id ="puzzleText">The second line contains integer m.</p>
+  <p id ="puzzleText">The next m lines contain 3 integers u, v, w each, meaning node u is connected to node v by an edge with weight w (w &lt;= 50000).</p>
+  <h2>Example:</h2>
+  <h3>Input:</h3>
+  <p id ="puzzleText">6 3</p>
+  <p id ="puzzleText">6</p>
+  <p id ="puzzleText">0 1 10</p>
+  <p id ="puzzleText">1 2 3</p>
+  <p id ="puzzleText">2 5 8</p>
+  <p id ="puzzleText">0 3 5</p>
+  <p id ="puzzleText">3 4 6</p>
+  <p id ="puzzleText">4 5 4</p>
+  <h3>Output:</h3>
+  <p id ="puzzleText">3</p>
+  <h3>Explanation:</h3>
+  <p id ="puzzleText">There are two paths from 0 to 5, 0-1-2-5 and 0-3-4-5. For the first path, the edge weights are 10, 3, 8 so the 3rd largest weight is 3. For the second path, the edge weights are 5,6,4 so the 3rd largest weight is 4. The first path has a lower value of 3 so that is the answer.</p>
+    
+<br>
+</p>
+
+<button > <a href="{% url 'puzzles:download_6_input' %}">Download Input</a></button>
