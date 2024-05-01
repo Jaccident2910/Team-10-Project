@@ -19,6 +19,11 @@
     min-width: 7rem;
     cursor: pointer;
     float: right;
+    margin-top: -10px;
+}
+
+.results {
+    text-align: center;
 }
 
 #puzzle-content-1-2 {
@@ -34,7 +39,7 @@
     background-color: #ccfcde;
 }
 
-#puzzle-content-3 {
+#puzzle-content {
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -138,6 +143,7 @@ header {
     background-color: royalblue;
     padding: 20px;    
     min-height: 28px;
+    margin-bottom: 20px;
 }
 
 div {
@@ -166,3 +172,6 @@ h1 {
     margin-bottom: 10px;
 }
 
+p {
+    color: black;
+}

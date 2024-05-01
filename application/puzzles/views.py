@@ -11,7 +11,7 @@ import pickle
 
 def viewpuzzle(request, puzzle_id):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("accounts:signup"))
+        return HttpResponseRedirect(reverse("signup"))
     if request.user.account.solved_puzzles:
         solved_puzzles = pickle.loads(request.user.account.solved_puzzles)
         if puzzle_id in solved_puzzles:
@@ -92,6 +92,9 @@ def answer(request, puzzle_id):
         return HttpResponseRedirect(reverse("puzzles:correct", args=(puzzle_id,)))
     else:
         return HttpResponseRedirect(reverse("puzzles:incorrect", args=(puzzle_id,)))
+
+
+
 
 def correct(request, puzzle_id):
     context = {"puzzle_id": puzzle_id}
