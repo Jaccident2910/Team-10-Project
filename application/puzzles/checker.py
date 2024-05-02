@@ -7,10 +7,6 @@ def checkAnswer(puzzle_id, solution):
             return tower_of_hanoi(9, solution)
         case 2:
             return tower_of_hanoi2(6, solution)
-        case 1:
-            return tower_of_hanoi(9, solution)
-        case 2:
-            return tower_of_hanoi2(6, solution)
         case 16:
             return True
         case 7:
@@ -654,8 +650,6 @@ def read_test_input_1(input: str):
 
     return num_rows, num_columns, num_houses, grid
 
-
-def read_contestant_output_1(output: str):
 def read_contestant_output_1(output: str):
     lines = output.splitlines()
 
@@ -700,8 +694,6 @@ def read_contestant_output_1(output: str):
 
     return route_length, starting_row, starting_column, directions
 
-
-def read_output_1(output: str):
 def read_output_1(output: str):
     lines = output.splitlines()
 
@@ -717,8 +709,6 @@ def read_output_1(output: str):
 
     return optimal_length
 
-
-def grade_1(input: str, contestant_output: str, output: str):
 def grade_1(input: str, contestant_output: str, output: str):
     try:
         num_rows, num_columns, _, grid = read_test_input_1(input)
