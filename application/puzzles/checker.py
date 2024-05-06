@@ -30,9 +30,9 @@ def checkAnswer(puzzle_id, solution):
 
             return True if result == 0 else False
         case 5:
-            return True if solution == 34095 else False
+            return True if solution == "34095" else False
         case 6:
-            return True if solution == 10593 else False
+            return True if solution == "10593" else False
         case 9:
             with (
                 open("./puzzles/static/puzzleData/9_input.txt", "r") as f,
@@ -46,9 +46,9 @@ def checkAnswer(puzzle_id, solution):
 
                 return True if result == 0 else False
         case 3:
-            return True if solution == 849013480 else False
+            return True if solution == "849013480" else False
         case 8:
-            return True if solution == 2669959738186064375 else False
+            return True if solution == "2669959738186064375" else False
 
 def read_test_input_3(input: str):
     lines = input.splitlines()
