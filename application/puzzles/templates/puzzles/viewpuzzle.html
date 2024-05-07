@@ -62,14 +62,9 @@
                 {% csrf_token %}
                 <!-- <input type="text" name="answer"/> -->
                 <textarea name="answer" rows="5" cols="102"></textarea>
-                <input type="submit" value="Submit" id="submit-button">
-            </form>
-        </div>
-        <div id="code-input">
-            <form action="{% url 'puzzles:answer' puzzle_id %}" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
+                <input type="submit" value="Submit" id="submit-button"><br>
                 <label for="code">Optionally upload the code you used to generate your solution:</label>
-                <input type="file" name="code" id="submit-button"> <br>
+                <input type="file" name="code" id="submit-button">
             </form>
         </div>
     </div>

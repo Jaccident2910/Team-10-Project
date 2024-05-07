@@ -98,7 +98,7 @@ class SignupEmployerCreationForm(UserCreationForm):
                 codename="is_employer"  
                 )[0]])
             user.groups.add(employerGroup)
-            theSeed = randint()
+            theSeed = randint(0,256)
             account = Account(user=user, puzzles_finished=0, account_random=theSeed)
             if commit:
                 user.save()

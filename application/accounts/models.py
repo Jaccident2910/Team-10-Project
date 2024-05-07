@@ -42,12 +42,12 @@ class Account(models.Model):
         return [(field, field.value_to_string(self)) for field in Account._meta.fields]
 
 def upload_path(instance, filename):
-    return f"{setting.MEDIA_ROOT}/uploads/{instance.account}/{instance.puzzle}/{filename}"
+    return f"{settings.MEDIA_ROOT}/uploads/{instance.account}/{instance.puzzle}/{filename}"
 
 class CodeSubmission(models.Model):
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
     puzzle = models.IntegerField()
-    file = models.FileField(upload_to=upload_path)
+    file = models.FileField(upload_to=upload_path, max_length=300)
 
     @classmethod
     def create(cls, user, puzzle_id, upload):
